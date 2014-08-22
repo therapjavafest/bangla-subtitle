@@ -1,0 +1,382 @@
+Hi.
+I'm Adam Porter.
+And this is Programming Mobile
+Applications For Android Handheld Systems.
+In our last lesson, we talked about
+the four fundamental components of Android
+applications.
+And they were activities, services,
+broadcast receivers, and content
+providers.
+Today we're going to take a deeper look
+at one of those components, the activity
+class.
+I'll start by presenting the activity
+class itself.
+Next, I'll discuss Android's task
+backstack, which helps users
+easily navigate back and forth among the
+activities they use.
+After that, I'll discuss the life cycle
+of activities, how they're created,
+executed and terminated.
+And how
+Android manages and communicates these
+life cycle phases and changes.
+To your applications.
+After that I'll discuss the API's and
+patterns
+that you'll need to programatically to
+start activities.
+And finally I'll finish up with a, with a
+discussion
+of how Android activities handle device
+and application configuration changes.
+So I've said before,
+activities are the primary class for
+interacting with users.
+They're designed to provide a visual
+interface through
+which the user can interact with the
+application.
+And by convention, activities should be
+modular in the sense that each activity
+should support a single focused thing that
+the user can do with your application.
+And individual things, like viewing an
+email message or showing a login screen.
+And if you follow this convention, then
+you
+end up creating applications by stringing
+together multiple activities.
+Each with a single purpose.
+That the user then navigates through and
+Android helps users
+do this navigation in a couple of ways, by
+supporting
+the concept of tasks, by providing a task
+backstack for
+managing the specific activities through
+which the user is navigating and
+by ensuring that activities are properly
+suspended and resumed
+as they're pushed on and popped off the
+task backstack.
+In Android a task is simply a set of
+related activities.These related
+activities can, but don't have to be, part
+of the same application.
+So tasks can span multiple applications.
+And most tasks start at the home screen.
+So when a user launches an application
+from the home screen a new task is
+normally started.
+And when a user hits the home button to
+return back to
+the home screen the current task is, is at
+least temporarily closed.
+The task backstack works as follows, when
+an activity is launched it's
+pushed onto the task backstack normally as
+part of the current task.
+When that activity is later destroyed, for
+example, because the
+user hit the back button, because the
+activity terminated itself
+programatically or even because Android
+itself has decided to kill
+that activity in order to reap its
+resources, then the activity
+is popped off the task backstack.
+Let's take a look at how this process
+works.
+Now this graphic represents an activity
+that's running on a device And
+depicts the state of the task backstack
+while the application is running.
+The black pointer at the bottom indicates
+the current snapshot.
+Now when this application is first
+launched it starts up activity
+one, which is then pushed onto the top of
+the task backstack as the root of the
+current task.
+Now as you can see, activity one has a
+single button labeled Start Activity two.
+So the idea here is that if the
+user presses this button, Activity Two
+will start.
+So let's say now that the user presses the
+Activity Two button.
+At this point Activity One is suspended
+and
+its state will be captured so that it can
+be restored later if the user returns back
+to it.
+Next, Activity Two begins and Activity Two
+is pushed onto the task backstack.
+Now similar to Activity One, Activity Two
+has a single button.
+Labeled Start Activity Three.
+If the user presses this button, Activity
+Three will start.
+So let's say that the user now presses
+the Start Activity Three button.
+At this point Activity Two will be
+suspended, Activity Three will
+begin and Activity Three will be pushed on
+to the task backstack.
+Now, let's say that the user has had
+enough of Activity Three and
+hits the back button with the idea of
+going back to Activity Two.
+At this point Android kills Activity Three
+and pops it off the task backstack.
+Now because Activity Two is currently at
+the top of
+the task backstack, Android will unsuspend
+or resume that activity.
+Restoring it's state and bringing it back
+into view on the device.
+Now as we saw with the task backstack
+examples.
+Android activities come, and go, and come
+again and go away for good.
+The have a lifecycle.
+And importantly for you as a developer
+your
+applications are not really in control of
+this lifecycle.
+Some lifecycle changes, for example,
+depend on choices that the
+user makes, like pressing the back button
+or the home button.
+Other lifecycle changes depend on Android
+itself.
+For example, if your device is running low
+on memory,
+Android can decide to kill activities that
+are currently suspended.
+And it will do that
+knowing that it will need to recreate them
+later if the user navigates back to them.
+So let's talk a bit more about
+the activity lifecycle and the particular
+lifecycle changes.
+That activities go through.
+For example, once an activity is started,
+it can be in a resumed or running state.
+And, while it's in this state, the
+activity
+is visible and the user can interact with
+it.
+An activity can
+also be paused.
+For instance, when a new activity starts
+to pop-up in front of it.
+In this situation, the activity may still
+be partially visible, but the user can't
+interact
+with it because the user will be
+interacting with a new activity that's
+starting up.
+Prior to version 3.0, Android could
+terminate
+activities once they went into the paused
+state.
+Now finally, the activity can be stopped.
+And when it is stopped that activity is
+no longer visible and Android is free to
+terminate.
+And this is important to reiterate.
+It can terminate stopped activities and it
+does so knowing that
+it might need to recreate them later if
+the users navigate
+back to them.
+Now, your activities will often need to
+behave
+differently during different parts of
+their life cycle.
+For instance, if your activity is showing
+an animation, but then
+pops up a, partially transparent
+dialogue-style
+activity in front of it, what
+you might want to pause the animation,
+while the user responds to
+the dialogue, and then restart the
+animation, once that dialogue activity
+finishes.
+In order to support scenarios like this,
+Android announces lifecycle changes to
+your activity, by calling specific
+lifecycle or template methods.
+And some of these methods are shown here.
+And each is named, as you can see, on
+something rather.
+OnCreate, when the activity's about to be
+created.
+OnStart, when the activity's about to
+become visible.
+All the way
+to onDestroy when the activity's about to
+be destroyed.
+And if you want to take some specific
+action when your activity changes
+state,then you need to override one or
+more of these methods in your activity.
+So let's take a look at how
+these different methods interrelate with
+each other.
+Now, this graphic depicts the orders in
+which activity lifecycle methods can be
+called.
+And the important thing to remember here,
+is that Android applications don't work
+completely by themselves.
+Instead, there's a clear back and
+forth collaboration between your
+application and Android.
+And you have to understand the rules of
+this collaboration.
+If you want your Android applications to
+function properly.
+So let's imagine a simple application with
+one activity.
+That starts up,
+waits for a moment, and then exits.
+In this simple case when that application
+is
+launched, Android will call the activity's
+On Create method.
+Then, Android will call its onStart method
+and then onResume, after which the
+activity's
+user interface will appear on the device's
+screen and the user can interact with it.
+After a minute or so our example
+activity will begin to shut down.
+And at this point Android will call that
+activity onPause method.
+Then onStop.
+Then finally onDestroy.
+And at this point the activity is
+completely dead.
+So, as you can see, the entire lifetime
+of the activity runs from the start of
+onCreate.
+To the end of Ondestroy.
+Now when this simple activity started it
+wasn't visible on the screen.
+At some point it became visible and at
+some point
+later it became invisible as it was
+removed from the screen.
+When activities are about to become
+visible.
+Android calls the onStart sometimes the
+onRestart method.
+When activities are about to become
+invisible, Android calls the onStop
+method.
+And so you can think of the visible
+lifetime of an activity as occurring
+between the start of calls to onStart and
+the end of calls to onStop.
+And finally, while an activity is visible
+on the screen, there are times when
+the user can interact with it, and there
+are times when he or she can't.
+And, for example, this can happen when a
+device goes to sleep.
+In that case the user can't interact with
+the
+activity anymore even though it still is
+the, the foreground activity.
+So when activities are about to be ready
+for user interaction Android calls the
+onResume method.
+When activities are about to stop being
+able to
+interact with the user, Android calls the
+onPause method.
+And so you can think of the visible and in
+foreground lifetime
+of an activity as occurring between the
+start of calls to onResume and
+the end of calls to onPause.
+Let's walk through an, an example of this
+based on
+the map location application that we saw
+in earlier lessons.
+First, the user goes to home screen and
+launches the map location application.
+This causes the map location activity to
+start up.
+At which point Android calls Map
+Location's onCreate method.
+OnCreate initializes the activity.
+And then Android continues by calling
+onStart.
+And at this point Map Location is visible
+but not yet ready for user interaction.
+And right now calls onResume.
+After onResume completes Map Location
+will soon be both visible and ready for
+user interaction.
+And at this point the user will normally
+enter an address in the address box.
+Once the address has been entered the user
+will normally
+press the show map button which will
+launch Google Maps.
+Now as Google Maps starts up it will have
+its own initial activity,
+that will go through its own lifecycle,
+and receive its own lifecycle call backs.
+Let's continue looking at what's going on
+with the map location activity.
+Now because Google maps is about to come
+into the foreground and cover up map
+location, the map location activity will
+first receive
+a call to its onPause method, and soon
+after this.Map Location will no longer be
+visible.
+An Android will call its onStop method.
+Now eventually Google Maps will appear on
+the
+screen, and the user can interact with it.
+But at some point, the user will be done
+with Google Maps and might,
+for example, choose return back to map
+location, for instance, to map a new
+address.
+So let's assume that the user now hits
+the back button to return back to Map
+Location.
+At this point Map Location must be brought
+back into the foreground.
+So as Android does this it will first call
+onRestart and then onStart.
+And soon after this an application will
+again be visible.
+Next, Android will call Map Locations
+onResume method, soon after which the
+Map Location activity will be both visible
+and ready for user interaction.
+And finally when the user eventually loses
+interest in application, he or she
+might hit the back button again, in this
+case to end the application.
+At this point, Android will again go
+through
+the process of removing Map Location from
+the screen.
+It will first call onPause, then onStop,
+and then
+this time it will call onDestroy, before
+completely terminating
+the application.
+

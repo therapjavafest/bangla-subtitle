@@ -1,0 +1,778 @@
+1
+00:00:08,880 --> 00:00:12,270
+Hi, I'm Adam Porter and this is
+
+2
+00:00:12,270 --> 00:00:17,060
+Programming Mobile Applications for
+Android Handheld Systems.
+
+3
+00:00:19,500 --> 00:00:22,650
+Another kind of resource is a Layout File.
+
+4
+00:00:22,650 --> 00:00:25,280
+Layout File specify what the user
+interface for
+
+5
+00:00:25,280 --> 00:00:28,760
+some part of your application will look
+like.
+
+6
+00:00:28,760 --> 00:00:31,950
+And again, these files are written in XML,
+although
+
+7
+00:00:31,950 --> 00:00:35,630
+some tools will allow you to create the
+layout visually.
+
+8
+00:00:35,630 --> 00:00:38,680
+And then those tools will generate the XML
+for you.
+
+9
+00:00:38,680 --> 00:00:44,740
+In fact Eclipse will do that Layout files
+are typically stored in the res/layout
+
+10
+00:00:44,740 --> 00:00:49,928
+directory of your application.
+And you can access the layout in java
+
+11
+00:00:49,928 --> 00:00:54,794
+as r.layout.layout_name.
+
+12
+00:00:54,794 --> 00:00:58,805
+And you can access that layout in other
+resource files as
+
+13
+00:00:58,805 --> 00:01:05,910
+@layout/layout_name.
+Now just like string files whose
+
+14
+00:01:05,910 --> 00:01:09,850
+use depends on your default language.
+Android allows you to create
+
+15
+00:01:09,850 --> 00:01:11,850
+multiple layout files.
+
+16
+00:01:11,850 --> 00:01:14,040
+And then Android can choose from those
+files
+
+17
+00:01:14,040 --> 00:01:18,310
+at run time based on your device's
+configuration.
+
+18
+00:01:18,310 --> 00:01:19,560
+Let's look at an example of that.
+
+19
+00:01:26,310 --> 00:01:31,090
+So let's look at the main .xml file that
+is in the res/layout directory.
+
+20
+00:01:32,620 --> 00:01:35,310
+This file specifies that the layout is
+
+21
+00:01:35,310 --> 00:01:39,070
+composed of something called the relative
+layout.
+
+22
+00:01:39,070 --> 00:01:42,180
+More on that when we talk about user
+interfaces.
+
+23
+00:01:42,180 --> 00:01:46,690
+And inside the relative layout there's
+another element called an edit
+
+24
+00:01:46,690 --> 00:01:52,050
+text, that's the box that you use for
+entering the postal address.
+
+25
+00:01:52,050 --> 00:01:56,010
+There's also a button, that's the button
+that was labeled show map.
+
+26
+00:01:56,010 --> 00:02:02,930
+Eclipse can also show what it thinks this
+will all look like, at run time.
+
+27
+00:02:02,930 --> 00:02:05,850
+And you can see that by clicking on the
+Graphical Layout tab.
+
+28
+00:02:05,850 --> 00:02:06,350
+Now
+
+29
+00:02:08,230 --> 00:02:12,480
+once you're there, you can also click on
+the individual elements.
+
+30
+00:02:12,480 --> 00:02:17,029
+And Eclipse will show you more detailed
+information about their layout properties.
+
+31
+00:02:18,790 --> 00:02:23,200
+MapLocation also has another file, also
+called main.xml,
+
+32
+00:02:23,200 --> 00:02:27,710
+but this one is in the res/layout-land
+directory.
+
+33
+00:02:28,770 --> 00:02:33,510
+If MapLocation is running with a device in
+landscape mode this file
+
+34
+00:02:33,510 --> 00:02:36,730
+is used, instead of the one that we saw
+before.
+
+35
+00:02:38,060 --> 00:02:40,520
+Now as you can see, this file uses the
+same elements.
+
+36
+00:02:40,520 --> 00:02:44,560
+A relative layout, an edit text and a
+button.
+
+37
+00:02:44,560 --> 00:02:48,010
+But I've changed their positioning
+slightly, so that
+
+38
+00:02:48,010 --> 00:02:49,990
+the elements all appear on a single line.
+
+39
+00:02:49,990 --> 00:02:53,520
+Which I think looks better in landscape
+mode.
+
+40
+00:02:53,520 --> 00:02:55,690
+And again, you can play around with
+Eclipse to get
+
+41
+00:02:55,690 --> 00:03:00,260
+more details about the layout properties
+of each individual element.
+
+42
+00:03:00,260 --> 00:03:01,880
+Now let's run the application.
+
+43
+00:03:04,010 --> 00:03:08,715
+The phone on the left is running in
+portrait mode, so it uses the default
+
+44
+00:03:08,715 --> 00:03:12,890
+main.XML file.
+The phone on the right however is running
+
+45
+00:03:12,890 --> 00:03:20,287
+in landscape mode, so it will use the
+main.XML file that's in res/layout-land.
+
+46
+00:03:21,570 --> 00:03:24,140
+And as you can see, the elements are
+actually
+
+47
+00:03:24,140 --> 00:03:27,610
+laid out differently depending on the
+orientation of the device.
+
+48
+00:03:30,780 --> 00:03:33,520
+Now I've mentioned a few times now that
+resources can
+
+49
+00:03:33,520 --> 00:03:37,880
+be accessed in Java as r dot something or
+another.
+
+50
+00:03:37,880 --> 00:03:42,400
+Well, to do this, Android generates a
+class called R
+
+51
+00:03:42,400 --> 00:03:46,780
+from your application and you can then
+access the fields
+
+52
+00:03:46,780 --> 00:03:49,380
+of this R class to get to those strings
+and
+
+53
+00:03:49,380 --> 00:03:54,080
+layouts and other resources that you
+defined in the XML files.
+
+54
+00:03:54,080 --> 00:03:55,780
+Let's take a look at an, at an
+
+55
+00:03:55,780 --> 00:03:57,570
+actual R.JAVA file.
+
+56
+00:04:07,090 --> 00:04:11,170
+As I've said, this file is generated by
+Android, so you shouldn't modify it.
+
+57
+00:04:13,450 --> 00:04:17,830
+You can see that the file defines the R
+class, and this
+
+58
+00:04:17,830 --> 00:04:23,990
+R class contains another class called
+Layout, which has a field called Main.
+
+59
+00:04:23,990 --> 00:04:28,740
+And that actually gives you a reference or
+handle to the Main.XML file.
+
+60
+00:04:28,740 --> 00:04:33,890
+There's also an ID class, providing
+handles to the relative layout, to the
+
+61
+00:04:33,890 --> 00:04:39,540
+edit text box and to the button defined in
+the main.XML files.
+
+62
+00:04:39,540 --> 00:04:43,234
+In fact, if you go back and check the
+main.XML
+
+63
+00:04:43,234 --> 00:04:47,781
+files now, you'll see that there are lines
+that say Android:ID.
+
+64
+00:04:48,850 --> 00:04:51,690
+And that's where these fields and IDs come
+from.
+
+65
+00:04:52,740 --> 00:04:56,150
+And finally, there's a class called string
+which provides
+
+66
+00:04:56,150 --> 00:04:58,540
+handles for all the strings that we've
+been talking about.
+
+67
+00:05:00,770 --> 00:05:05,100
+The next step in application development
+is implementing your Java classes.
+
+68
+00:05:05,100 --> 00:05:07,990
+And this usually involves writing at least
+one activity.
+
+69
+00:05:07,990 --> 00:05:12,210
+The entry point for activities is the
+onCreate method.
+
+70
+00:05:12,210 --> 00:05:15,540
+So that's where you'll typically
+initialize your application.
+
+71
+00:05:15,540 --> 00:05:18,020
+Let's look at the onCreate method in a bit
+more detail.
+
+72
+00:05:20,210 --> 00:05:23,540
+In onCreate, you usually do the following
+four things.
+
+73
+00:05:23,540 --> 00:05:26,610
+You restore saved application state.
+
+74
+00:05:26,610 --> 00:05:29,070
+You set the content view, which tells
+android
+
+75
+00:05:29,070 --> 00:05:33,350
+what to display as the activity's user
+interface.
+
+76
+00:05:33,350 --> 00:05:38,590
+You initialize specific elements of your
+activity's user interface.
+
+77
+00:05:38,590 --> 00:05:41,610
+And last, you attach code to those user
+interface
+
+78
+00:05:41,610 --> 00:05:45,910
+elements, so that specific actions will be
+performed when
+
+79
+00:05:45,910 --> 00:05:50,075
+the users interact with these user
+interface elements.
+
+80
+00:05:50,075 --> 00:05:52,590
+Let's see how these steps are implemented
+in MapLocation.
+
+81
+00:05:52,590 --> 00:05:57,080
+So let's take a look at the MapLocation
+source code.
+
+82
+00:05:57,080 --> 00:05:58,380
+Its all contained in a file
+
+83
+00:05:58,380 --> 00:06:02,760
+called MapLocation.java, in the
+application's source
+
+84
+00:06:02,760 --> 00:06:09,220
+directory, now as you can see, this file
+implements a class called MapLocation.
+
+85
+00:06:09,220 --> 00:06:11,020
+Which is a subclass of activity.
+
+86
+00:06:11,020 --> 00:06:17,810
+As an activity it has an onCreate method
+where the application is initialized.
+
+87
+00:06:18,850 --> 00:06:21,245
+The first step of onCreate is to call
+
+88
+00:06:21,245 --> 00:06:27,355
+super.oncreate, passing saved instant
+state as a parameter.
+
+89
+00:06:27,355 --> 00:06:31,790
+This saved instant is a something of type
+bundle and
+
+90
+00:06:31,790 --> 00:06:36,160
+it's basically a data structure containing
+any information that Android
+
+91
+00:06:36,160 --> 00:06:39,780
+might have saved from the last time the
+activity was running.
+
+92
+00:06:41,410 --> 00:06:45,340
+We'll talk more about this next time when
+we dive deeper into the activity class.
+
+93
+00:06:45,340 --> 00:06:48,300
+But for now, just be aware that onCreate
+
+94
+00:06:48,300 --> 00:06:51,910
+has to call super.onCreate, or you'll get
+an error.
+
+95
+00:06:53,160 --> 00:06:55,070
+Next, there's a call to setContentView.
+
+96
+00:06:55,070 --> 00:07:00,115
+In this case, passing in the reference of
+the layout file, for this application,
+
+97
+00:07:00,115 --> 00:07:03,500
+r.layout.main.
+
+98
+00:07:03,500 --> 00:07:05,130
+After that, there's some code that
+acquires
+
+99
+00:07:05,130 --> 00:07:09,190
+references to individual UI elements in
+the layout.
+
+100
+00:07:09,190 --> 00:07:12,510
+Such as the edit text box, which is stored
+in a variable called,
+
+101
+00:07:12,510 --> 00:07:17,370
+adder text, and the button, which is
+stored in a variable called button.
+
+102
+00:07:19,950 --> 00:07:22,685
+As you can see, these references are
+acquired by calling
+
+103
+00:07:22,685 --> 00:07:29,490
+activity.findviewbyid and passing in the
+id of the desired element.
+
+104
+00:07:31,600 --> 00:07:34,370
+And finally, there's some code that
+defines what to
+
+105
+00:07:34,370 --> 00:07:37,590
+do when the user presses the show map
+button.
+
+106
+00:07:38,600 --> 00:07:42,700
+This code implements the on click listener
+interface, which has an on
+
+107
+00:07:42,700 --> 00:07:47,710
+click method that gets called whenever the
+user clicks on this button.
+
+108
+00:07:47,710 --> 00:07:51,000
+And the code in that on click method first
+gets
+
+109
+00:07:51,000 --> 00:07:54,840
+any text that the user has entered in the
+address box.
+
+110
+00:07:54,840 --> 00:07:56,690
+Then it processes that text
+
+111
+00:07:56,690 --> 00:08:02,180
+to remove spaces and put it in a format
+that Google Maps understands.
+
+112
+00:08:02,180 --> 00:08:04,210
+And then it starts the Google Map app,
+
+113
+00:08:04,210 --> 00:08:09,620
+Google Maps application, passing in this
+modified address text.
+
+114
+00:08:09,620 --> 00:08:13,660
+And again, I'll explain what this code is
+doing in more detail in later
+
+115
+00:08:13,660 --> 00:08:18,380
+lessons when we dive into the workings of
+the activity class and the intent class.
+
+116
+00:08:19,470 --> 00:08:21,590
+And also, just to simplify things,
+
+117
+00:08:21,590 --> 00:08:23,840
+I have left out any error checking or
+
+118
+00:08:23,840 --> 00:08:27,230
+verification of the address string that
+was input.
+
+119
+00:08:27,230 --> 00:08:30,040
+But of course in production code, you're
+really going to want to do that.
+
+120
+00:08:32,570 --> 00:08:36,510
+The next step in creating Android
+applications is to provide information
+
+121
+00:08:36,510 --> 00:08:42,420
+that allows Android's build tools to
+create the application package or APK
+
+122
+00:08:42,420 --> 00:08:48,565
+and this information is written in an XML
+file called androidmanifest.xml.
+
+123
+00:08:49,820 --> 00:08:54,830
+The AndroidManifest.xml file contains a
+wide variety of packaging information.
+
+124
+00:08:54,830 --> 00:08:57,750
+Including the name of the application, and
+a list
+
+125
+00:08:57,750 --> 00:09:00,620
+of the components that make up that
+application.
+
+126
+00:09:00,620 --> 00:09:04,800
+It also includes other information, that
+we'll discuss later in the course.
+
+127
+00:09:04,800 --> 00:09:08,590
+Things like the permissions that are
+needed to run this application.
+
+128
+00:09:08,590 --> 00:09:12,260
+The hardware features, such as a camera
+that this application
+
+129
+00:09:12,260 --> 00:09:17,810
+requires and the earliest platform version
+on which this application runs.
+
+130
+00:09:17,810 --> 00:09:21,880
+Let's look at the androidmanifest.xml file
+for MapLocation.
+
+131
+00:09:24,620 --> 00:09:30,190
+The androidmanifest.xml file is in the top
+level directory of the application.
+
+132
+00:09:30,190 --> 00:09:31,080
+Let's open it now.
+
+133
+00:09:38,850 --> 00:09:41,780
+Inside you see that there is a manifest
+tag telling
+
+134
+00:09:41,780 --> 00:09:46,829
+Android that this file contains the
+packaging information that it needs.
+
+135
+00:09:48,386 --> 00:09:50,260
+There's a lot of other information in here
+as
+
+136
+00:09:50,260 --> 00:09:52,220
+well but I'll just discuss a few pieces of
+it.
+
+137
+00:09:53,440 --> 00:09:57,350
+One element we see here is the uses SDK
+element.
+
+138
+00:09:57,350 --> 00:10:00,430
+This element includes an attribute, min
+SDK
+
+139
+00:10:00,430 --> 00:10:04,040
+version, that specifies the minimum API
+level for
+
+140
+00:10:04,040 --> 00:10:04,900
+this application.
+
+141
+00:10:06,070 --> 00:10:08,650
+And in this case, that level is ten,
+
+142
+00:10:08,650 --> 00:10:12,570
+which corresponds to one of the Android
+2.3 releases.
+
+143
+00:10:14,170 --> 00:10:15,660
+This element also includes another
+
+144
+00:10:15,660 --> 00:10:19,220
+attribute, target STK version, which
+specifies
+
+145
+00:10:19,220 --> 00:10:23,740
+the latest API level against which this
+application has been tested.
+
+146
+00:10:24,820 --> 00:10:29,165
+In this case that's level 17 and
+corresponds to a Android
+
+147
+00:10:29,165 --> 00:10:30,420
+4.2 release.
+
+148
+00:10:31,530 --> 00:10:34,560
+There's also an application element, that
+specifies
+
+149
+00:10:34,560 --> 00:10:37,910
+things like the icon for this application.
+
+150
+00:10:37,910 --> 00:10:41,870
+And the label that's shown in the
+application's title bar.
+
+151
+00:10:41,870 --> 00:10:46,250
+Inside the application element, there's an
+activity element, that lists
+
+152
+00:10:46,250 --> 00:10:47,560
+the one activity, in this
+
+153
+00:10:47,560 --> 00:10:50,730
+case MapLocation, that comprises this
+application.
+
+154
+00:10:53,360 --> 00:10:56,020
+And the last step is installing the
+application on a
+
+155
+00:10:56,020 --> 00:11:00,090
+device or emulator in order to test and
+debug it.
+
+156
+00:11:00,090 --> 00:11:04,120
+In an earlier lesson we saw how to do that
+in Eclipse and you can
+
+157
+00:11:04,120 --> 00:11:05,850
+also do this from the command line, for
+
+158
+00:11:05,850 --> 00:11:09,340
+example, by issuing commands to the adb
+tool.
+
+159
+00:11:09,340 --> 00:11:09,840
+So
+
+160
+00:11:13,470 --> 00:11:16,410
+that's all for application fundamentals,
+please join me
+
+161
+00:11:16,410 --> 00:11:19,330
+next time when we will discuss the
+activity class.
+
+162
+00:11:19,330 --> 00:11:20,810
+See you then.
+

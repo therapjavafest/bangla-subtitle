@@ -1,0 +1,1007 @@
+1
+00:00:08,880 --> 00:00:12,270
+Hi, I'm Adam Porter, and this is,
+
+2
+00:00:12,270 --> 00:00:17,068
+Programming Mobile Applications for
+Android Handheld Systems.
+
+3
+00:00:17,068 --> 00:00:21,800
+Today, we're going to talk about the four
+fundamental
+
+4
+00:00:21,800 --> 00:00:25,500
+building blocks from which all Android
+applications are built.
+
+5
+00:00:27,210 --> 00:00:31,020
+These building blocks are implemented as
+Java classes.
+
+6
+00:00:31,020 --> 00:00:34,480
+And the first of these building blocks is
+the activity class.
+
+7
+00:00:34,480 --> 00:00:38,900
+Now that's the main class that users see
+when the run an application.
+
+8
+00:00:38,900 --> 00:00:43,570
+Activities are designed to provide a
+graphical user interface, or a GUI, to the
+
+9
+00:00:43,570 --> 00:00:46,470
+user, and this enables users to give
+
+10
+00:00:46,470 --> 00:00:49,930
+and receive information to and from an
+application.
+
+11
+00:00:51,030 --> 00:00:53,350
+The remaining three components work behind
+the
+
+12
+00:00:53,350 --> 00:00:55,960
+scenes, so they don't have user
+interfaces.
+
+13
+00:00:57,010 --> 00:00:59,870
+And these components include services
+
+14
+00:00:59,870 --> 00:01:04,030
+for supporting long running or in the
+background operations.
+
+15
+00:01:04,030 --> 00:01:10,200
+Broadcast receivers that listen for and
+respond to events that happen on a device.
+
+16
+00:01:10,200 --> 00:01:15,190
+And content providers which allow multiple
+applications to store and share data.
+
+17
+00:01:16,660 --> 00:01:20,850
+Applications are typically created from
+multiple collaborating components,
+
+18
+00:01:20,850 --> 00:01:23,980
+which Android starts up and runs as
+necessary.
+
+19
+00:01:25,120 --> 00:01:26,540
+And each of these components serves
+
+20
+00:01:26,540 --> 00:01:29,600
+a different purpose in the Android
+ecosystem.
+
+21
+00:01:29,600 --> 00:01:33,650
+And therefore, has it own entry point, and
+its own APIs.
+
+22
+00:01:33,650 --> 00:01:36,800
+Let's take a look at each of these
+components one at a time.
+
+23
+00:01:39,180 --> 00:01:42,140
+First, let's talk about the activity
+class.
+
+24
+00:01:42,140 --> 00:01:45,750
+As I said earlier, this class is designed
+to present a graphical user
+
+25
+00:01:45,750 --> 00:01:51,320
+interface to the user and to capture the
+user's interaction through that interface.
+
+26
+00:01:51,320 --> 00:01:54,350
+As a general rule of thumb, an activity
+should
+
+27
+00:01:54,350 --> 00:01:58,100
+support a single focused thing that the
+user can do.
+
+28
+00:01:58,100 --> 00:02:00,850
+A single thing, like dialing a phone
+number or
+
+29
+00:02:00,850 --> 00:02:04,920
+entering contact information for a single
+person, and so on.
+
+30
+00:02:04,920 --> 00:02:07,890
+Now, of course, as device screens,
+especially those
+
+31
+00:02:07,890 --> 00:02:10,440
+on tablets, get larger and larger, what we
+
+32
+00:02:10,440 --> 00:02:15,190
+mean by a single focus thing that the user
+can do is, of course, bound to change.
+
+33
+00:02:16,540 --> 00:02:18,830
+Now, as an example of an activity, let's
+
+34
+00:02:18,830 --> 00:02:21,190
+take a look at the phone dialer
+application.
+
+35
+00:02:22,750 --> 00:02:26,710
+Here I'll show you the phone application
+running on an actual device.
+
+36
+00:02:28,540 --> 00:02:29,930
+You'll remember from earlier lessons
+
+37
+00:02:29,930 --> 00:02:35,440
+that the phone application can open a user
+interface with multiple tabs.
+
+38
+00:02:35,440 --> 00:02:39,436
+One for a phone dialer, one for the call
+log, and one for a contact list.
+
+39
+00:02:39,436 --> 00:02:43,510
+In Android 4.2, this application's source
+code
+
+40
+00:02:43,510 --> 00:02:46,900
+is actually part of the contacts
+application.
+
+41
+00:02:46,900 --> 00:02:52,680
+And it's written in a file called
+dialtectsactivity.java.
+
+42
+00:02:52,680 --> 00:02:54,070
+Here I'll open that file.
+
+43
+00:02:56,410 --> 00:03:01,614
+As you can see the dial tects activity
+class is a subclass of activity.
+
+44
+00:03:01,614 --> 00:03:06,562
+And the comments here
+
+45
+00:03:06,562 --> 00:03:13,000
+explain that this activity is supposed to
+display a tab containing
+
+46
+00:03:13,000 --> 00:03:15,710
+the phone, the phone dialer, the call log
+
+47
+00:03:15,710 --> 00:03:18,050
+and the contacts list that I mentioned
+earlier.
+
+48
+00:03:19,320 --> 00:03:21,580
+Let me pause here and give you a chance
+
+49
+00:03:21,580 --> 00:03:23,940
+to explore this source code for yourself.
+
+50
+00:03:27,690 --> 00:03:30,910
+The next component is the Service Class.
+
+51
+00:03:30,910 --> 00:03:33,990
+Unlike activity, services run in the
+background.
+
+52
+00:03:33,990 --> 00:03:37,620
+So there's no need for services to have
+user interfaces.
+
+53
+00:03:37,620 --> 00:03:40,630
+Instead, services have two main purposes.
+
+54
+00:03:40,630 --> 00:03:43,460
+One, they can perform long running
+operations,
+
+55
+00:03:43,460 --> 00:03:46,550
+typically away from the main UI thread.
+
+56
+00:03:46,550 --> 00:03:48,650
+And two, they provide a way for
+
+57
+00:03:48,650 --> 00:03:53,490
+different processes to request operations
+and share data.
+
+58
+00:03:53,490 --> 00:03:57,940
+Now for an example of a service, let's
+take a look at the music application.
+
+59
+00:03:59,570 --> 00:04:03,140
+So here I'll show you the music
+application running on a device.
+
+60
+00:04:04,810 --> 00:04:06,490
+As you can see the music application has a
+
+61
+00:04:06,490 --> 00:04:10,610
+number of different user interface screens
+that show, for
+
+62
+00:04:10,610 --> 00:04:14,490
+example, your music Showing the songs
+performed by a
+
+63
+00:04:14,490 --> 00:04:18,300
+single artist, letting you select one song
+by that artist,
+
+64
+00:04:19,370 --> 00:04:21,510
+and finally letting you play that one
+song.
+
+65
+00:04:21,510 --> 00:04:25,480
+Now if you start playing a song, however,
+and then decide
+
+66
+00:04:25,480 --> 00:04:29,370
+to back up and see what other songs that
+artist has.
+
+67
+00:04:29,370 --> 00:04:31,990
+Or if you want to do something totally
+different, like check
+
+68
+00:04:31,990 --> 00:04:36,620
+your email, you probably don't want the
+music to stop playing.
+
+69
+00:04:36,620 --> 00:04:41,740
+So Android handles this by using a service
+to play the music.
+
+70
+00:04:41,740 --> 00:04:44,450
+Now here I'll go to the music application
+and open
+
+71
+00:04:44,450 --> 00:04:47,750
+the MediaPlaybackService.java file.
+
+72
+00:04:54,550 --> 00:05:00,200
+As you can see, the media playback service
+is a subclass, of service.
+
+73
+00:05:00,200 --> 00:05:03,560
+And the comments explain that this service
+allows the music
+
+74
+00:05:03,560 --> 00:05:07,820
+to keep playing, even if the user switches
+between different activities.
+
+75
+00:05:08,980 --> 00:05:11,080
+And again, let me pause here and give you
+
+76
+00:05:11,080 --> 00:05:13,710
+a chance to explore this source code for
+yourself.
+
+77
+00:05:17,400 --> 00:05:20,470
+The next component is broadcast receiver.
+
+78
+00:05:20,470 --> 00:05:24,650
+Broadcast receiver's listen for and
+respond to events.
+
+79
+00:05:24,650 --> 00:05:25,920
+And essentially they play the role
+
+80
+00:05:25,920 --> 00:05:29,020
+of the subscriber in the publish/subscribe
+pattern.
+
+81
+00:05:30,490 --> 00:05:33,760
+In Android, events are represented by the
+intent class.
+
+82
+00:05:33,760 --> 00:05:36,120
+Which we'll talk about more in later
+classes.
+
+83
+00:05:37,790 --> 00:05:40,470
+Publishers create these intents and then
+broadcast
+
+84
+00:05:40,470 --> 00:05:42,590
+them using a method like the context
+
+85
+00:05:42,590 --> 00:05:45,328
+classes, send broadcasts.
+
+86
+00:05:45,328 --> 00:05:49,150
+Now, once broadcasted, these intents are
+then routed to the broadcast
+
+87
+00:05:49,150 --> 00:05:55,100
+receivers that have subscribed to, or
+registered for, those specific intents.
+
+88
+00:05:55,100 --> 00:05:58,400
+At which point, they can respond to the
+event.
+
+89
+00:05:58,400 --> 00:06:01,460
+Now, the messaging application is one
+example
+
+90
+00:06:01,460 --> 00:06:04,800
+application that makes use of broadcast
+receivers.
+
+91
+00:06:04,800 --> 00:06:06,460
+Let's take a look at that application.
+
+92
+00:06:06,460 --> 00:06:06,960
+So
+
+93
+00:06:08,680 --> 00:06:12,830
+let's imagine that somewhere out there in
+the world, someone decides that they want
+
+94
+00:06:12,830 --> 00:06:19,040
+to send me an SMS message.
+That SMS message will be created and
+
+95
+00:06:19,040 --> 00:06:24,810
+sent and will flow through the telephone
+network and eventually arrive at my phone.
+
+96
+00:06:24,810 --> 00:06:28,930
+And when it does, Android will put a
+notification icon in the
+
+97
+00:06:28,930 --> 00:06:33,940
+notification bar to let me know that an
+SMS message has arrived
+
+98
+00:06:33,940 --> 00:06:34,970
+for me.
+
+99
+00:06:34,970 --> 00:06:39,230
+Now of course, you can't know exactly when
+you're going to receive such a message.
+
+100
+00:06:39,230 --> 00:06:46,260
+So Android has some software that just
+sits and waits for SMS messages to arrive.
+
+101
+00:06:46,260 --> 00:06:53,590
+And when they do, that software broadcasts
+an SMS_received intent.
+
+102
+00:06:54,720 --> 00:07:00,920
+And there is another broadcast receiver
+that is listening for that intent and
+
+103
+00:07:00,920 --> 00:07:06,160
+that broadcast receiver will eventually
+receive the intent and will then start up
+
+104
+00:07:06,160 --> 00:07:13,050
+a service that will download and store the
+incoming SMS message.
+
+105
+00:07:13,050 --> 00:07:17,305
+Now here I'll go to the MMS application
+and open one of its broadcast receivers.
+
+106
+00:07:17,305 --> 00:07:19,550
+SMSreceiver.java.
+
+107
+00:07:19,550 --> 00:07:25,690
+As you can see, the SMS receiver class is
+a subclass of broadcast receiver.
+
+108
+00:07:25,690 --> 00:07:26,460
+And the
+
+109
+00:07:26,460 --> 00:07:29,750
+comments explain that this broadcast
+receiver
+
+110
+00:07:29,750 --> 00:07:31,990
+hands off the incoming SMS mesage to
+
+111
+00:07:31,990 --> 00:07:36,800
+a service which takes care of the
+downloading and storage of the message.
+
+112
+00:07:36,800 --> 00:07:39,435
+Now once more, let's pause here and
+
+113
+00:07:39,435 --> 00:07:43,260
+explore the sorch-, the source code for
+yourself.
+
+114
+00:07:45,840 --> 00:07:48,760
+The last component is content provider.
+
+115
+00:07:48,760 --> 00:07:52,810
+Content provider allows applications to
+store and share data.
+
+116
+00:07:52,810 --> 00:07:55,800
+Content providers uses a database-style
+interface
+
+117
+00:07:55,800 --> 00:07:58,120
+but they're more than just databases.
+
+118
+00:07:58,120 --> 00:08:00,400
+For example, content providers will handle
+
+119
+00:08:00,400 --> 00:08:04,040
+the low-level details of inter-process
+communication.
+
+120
+00:08:04,040 --> 00:08:06,940
+So that applications running in separate
+processes
+
+121
+00:08:06,940 --> 00:08:11,470
+can communicate and exchange data safely
+and easily.
+
+122
+00:08:11,470 --> 00:08:15,010
+The browser application is one example of
+an application that
+
+123
+00:08:15,010 --> 00:08:19,308
+uses content providers.
+So here I'll start the browser
+
+124
+00:08:19,308 --> 00:08:24,358
+application.
+If I click on the icon next to the address
+
+125
+00:08:24,358 --> 00:08:30,630
+bar, the browser opens a list of
+bookmarks, or saved addresses,
+
+126
+00:08:30,630 --> 00:08:36,600
+for websites that I might want to access
+quickly in the future.
+
+127
+00:08:39,090 --> 00:08:41,340
+When a user adds one of these bookmarks,
+
+128
+00:08:41,340 --> 00:08:44,719
+the browser application stores it in a
+content provider.
+
+129
+00:08:45,860 --> 00:08:48,950
+Let's open the browser application source
+code,
+
+130
+00:08:48,950 --> 00:08:52,310
+and take a look at the
+browserprovider.java file.
+
+131
+00:08:52,310 --> 00:08:59,020
+As you can see, the browser provider is a
+subclass of content provider.
+
+132
+00:08:59,020 --> 00:09:00,710
+And if we nose around a bit in the source
+
+133
+00:09:00,710 --> 00:09:04,110
+code, you can see some suggestions that
+there's a database
+
+134
+00:09:04,110 --> 00:09:05,329
+table called bookmarks.
+
+135
+00:09:06,420 --> 00:09:08,940
+Which is used for storing the bookmarks
+that the user adds.
+
+136
+00:09:08,940 --> 00:09:13,190
+Now I'll pause again here and let you
+explore this source code for yourself.
+
+137
+00:09:17,010 --> 00:09:21,080
+In our last class we looked at the Hello
+Android application.
+
+138
+00:09:21,080 --> 00:09:25,070
+That simple application involved just a
+single activity.
+
+139
+00:09:25,070 --> 00:09:28,590
+Today, however, we're going to look at a
+more complex application.
+
+140
+00:09:28,590 --> 00:09:30,750
+In this case comprised of two activities.
+
+141
+00:09:32,000 --> 00:09:35,024
+And, of course, once you know how to use
+two activities, adding a
+
+142
+00:09:35,024 --> 00:09:37,810
+third, and a forth and so on, will just be
+more of the same.
+
+143
+00:09:38,870 --> 00:09:42,510
+This application is called MapLocation and
+one of its activities
+
+144
+00:09:42,510 --> 00:09:45,710
+allows the user to enter a postal address.
+
+145
+00:09:45,710 --> 00:09:48,850
+That activity also provides a button that
+the user
+
+146
+00:09:48,850 --> 00:09:51,980
+can press, once he or she has entered that
+address.
+
+147
+00:09:53,060 --> 00:09:57,970
+And pressing that button will then start
+up a second activity, Google Maps,
+
+148
+00:09:57,970 --> 00:10:02,900
+that presents a map centered on the
+address that the user just entered.
+
+149
+00:10:02,900 --> 00:10:12,900
+Let's take a look.
+Now this
+
+150
+00:10:40,966 --> 00:10:46,246
+graphic depicts the process of writing and
+building Android applications.
+
+151
+00:10:46,246 --> 00:10:48,696
+First, you create the source code and the
+
+152
+00:10:48,696 --> 00:10:52,950
+non-source code resources that make up
+your application.
+
+153
+00:10:52,950 --> 00:10:57,170
+Next, tools compile your source code, and
+prepare your resources.
+
+154
+00:10:58,250 --> 00:11:00,310
+The output of this step is an Android
+
+155
+00:11:00,310 --> 00:11:05,300
+package or APK which corresponds to your
+application's executable.
+
+156
+00:11:06,450 --> 00:11:10,700
+Next the APK is digitally signed, to
+identify you as its developer
+
+157
+00:11:11,870 --> 00:11:16,190
+and finally the APK is installed on a
+device or emulator and run.
+
+158
+00:11:18,490 --> 00:11:21,080
+As a developer, your participation in the
+build
+
+159
+00:11:21,080 --> 00:11:24,397
+process will usually involve the following
+four steps.
+
+160
+00:11:24,397 --> 00:11:26,436
+Defining resources.
+
+161
+00:11:26,436 --> 00:11:29,900
+Implementing the application classes.
+
+162
+00:11:29,900 --> 00:11:34,420
+Packaging the application, and installing
+and running the application.
+
+163
+00:11:34,420 --> 00:11:36,680
+In particular, for testing and debugging.
+
+164
+00:11:38,780 --> 00:11:41,570
+Step 1, is defining your application's
+resources.
+
+165
+00:11:41,570 --> 00:11:46,018
+As I've said before, Android applications
+are more than just source code.
+
+166
+00:11:46,018 --> 00:11:49,720
+They include non-source code entities as
+well, things like
+
+167
+00:11:49,720 --> 00:11:55,365
+layout files, strings, images, menus,
+animations and much more.
+
+168
+00:11:55,365 --> 00:12:01,120
+And managing resources separately from the
+application has several benefits.
+
+169
+00:12:01,120 --> 00:12:04,720
+One of which is that you can easily alter
+those resources
+
+170
+00:12:04,720 --> 00:12:08,720
+without having to change or recompile your
+applications source code in any way.
+
+171
+00:12:10,710 --> 00:12:13,820
+One common resource type is strings.
+
+172
+00:12:13,820 --> 00:12:16,690
+In Android there are three types of string
+resources.
+
+173
+00:12:16,690 --> 00:12:18,300
+Individual strings.
+
+174
+00:12:18,300 --> 00:12:21,610
+Arrays of strings and plurals.
+
+175
+00:12:21,610 --> 00:12:23,630
+Now I think strings and, and arrays of
+
+176
+00:12:23,630 --> 00:12:27,430
+strings are pretty self explanatory, let's
+talk about plurals.
+
+177
+00:12:27,430 --> 00:12:30,250
+Plurals are basically string arrays
+
+178
+00:12:30,250 --> 00:12:34,120
+that can be used to choose specific
+strings that are
+
+179
+00:12:34,120 --> 00:12:39,750
+associated with certain quantities, such
+as one book, or two books.
+
+180
+00:12:40,910 --> 00:12:43,500
+And the strings are typically stored in an
+
+181
+00:12:43,500 --> 00:12:48,160
+XML file in the res/values directory of
+your application.
+
+182
+00:12:48,160 --> 00:12:51,160
+And the format is a, an XML string
+
+183
+00:12:51,160 --> 00:12:55,290
+tag containing a name attribute and then
+containing
+
+184
+00:12:55,290 --> 00:12:57,290
+the actual string itself.
+
+185
+00:12:57,290 --> 00:13:02,080
+And that actual string can include
+formatting and styling information.
+
+186
+00:13:02,080 --> 00:13:03,830
+Things like HTML tags for example.
+
+187
+00:13:05,140 --> 00:13:10,150
+Finally, other resource files can refer to
+the strings that you've defined as
+
+188
+00:13:10,150 --> 00:13:15,090
+@string/string_name.
+
+189
+00:13:15,090 --> 00:13:19,525
+In Java code, you can also access these
+strings, but this time you do it as
+
+190
+00:13:19,525 --> 00:13:27,760
+R.string.string_name.
+
+191
+00:13:27,760 --> 00:13:29,682
+So, here we are again in Eclipse.
+
+192
+00:13:30,800 --> 00:13:35,120
+I've defined some strings for the Map
+Location application.
+
+193
+00:13:35,120 --> 00:13:40,450
+Let's open the strings.xml file in the
+res/values directory.
+
+194
+00:13:45,450 --> 00:13:51,180
+This file shows two strings,
+show_map_string
+
+195
+00:13:51,180 --> 00:13:56,680
+with the value, show map.
+And location_string,
+
+196
+00:13:56,680 --> 00:14:00,500
+with the value, enter location.
+Now, I've also
+
+197
+00:14:00,500 --> 00:14:04,660
+defined a second string's.xml file.
+This time for the Italian
+
+198
+00:14:04,660 --> 00:14:11,380
+language.
+And it's in the res/values-it directory.
+
+199
+00:14:11,380 --> 00:14:15,690
+And that IT prefix in the directory name,
+is what tells
+
+200
+00:14:15,690 --> 00:14:19,890
+Android that this is the string file for
+the Italian language.
+
+201
+00:14:20,920 --> 00:14:23,704
+Now if we look at that file, we'll
+
+202
+00:14:23,704 --> 00:14:30,050
+see the same two strings, show_map_string
+and location_string.
+
+203
+00:14:30,050 --> 00:14:35,690
+But this time their values are Italian
+words rather than English words.
+
+204
+00:14:37,940 --> 00:14:40,690
+In the example I just showed, if your
+default language
+
+205
+00:14:40,690 --> 00:14:46,210
+is Italian then location string will have
+the value digita l'indirizzo.
+
+206
+00:14:47,220 --> 00:14:51,170
+Otherwise, it'll have the value enter
+location.
+
+207
+00:14:51,170 --> 00:14:52,150
+Let's see that in action.
+
+208
+00:14:55,880 --> 00:14:58,660
+Now I'm going to run Map Location twice.
+
+209
+00:14:58,660 --> 00:15:02,540
+The phone on the left uses English as its
+default language.
+
+210
+00:15:02,540 --> 00:15:06,480
+While the phone on the right uses Italian
+as its default language.
+
+211
+00:15:08,650 --> 00:15:14,290
+Now as you can see, although both phones
+are using the same exact source code, the
+
+212
+00:15:14,290 --> 00:15:17,690
+phone on the left, displays English
+strings, while
+
+213
+00:15:17,690 --> 00:15:20,760
+the phone on the right, displays Italian
+strings.
+

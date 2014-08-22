@@ -1,0 +1,1319 @@
+1
+00:00:08,880 --> 00:00:12,270
+Hi, I'm Adam Porter, and this is
+
+2
+00:00:12,270 --> 00:00:17,060
+Programming Mobile Applications for
+Android Handheld Systems.
+
+3
+00:00:19,930 --> 00:00:22,910
+Today I am going to introduce you to the
+Android platform.
+
+4
+00:00:22,910 --> 00:00:24,732
+I'll start by giving you an overview of
+the
+
+5
+00:00:24,732 --> 00:00:28,420
+Android platform, and the components that
+make it up.
+
+6
+00:00:28,420 --> 00:00:30,860
+And then I'll present each of these
+components and
+
+7
+00:00:30,860 --> 00:00:35,550
+discuss how they help developers build
+great mobile applications.
+
+8
+00:00:35,550 --> 00:00:36,330
+So let's get started.
+
+9
+00:00:38,870 --> 00:00:43,850
+The Android platform is a software stack.
+And it was designed primarily, but not
+
+10
+00:00:43,850 --> 00:00:49,980
+exclusively, to support mobile devices
+such as phones and tablets.
+
+11
+00:00:49,980 --> 00:00:51,980
+And this stack has several layers going
+all the
+
+12
+00:00:51,980 --> 00:00:55,520
+way from low level operating system
+services that manage
+
+13
+00:00:55,520 --> 00:00:59,740
+the device itself up to sample
+applications, things like
+
+14
+00:00:59,740 --> 00:01:04,030
+the phone dialer, the context database,
+and a web browser.
+
+15
+00:01:04,030 --> 00:01:07,070
+Android also comes with a software
+developers kit,
+
+16
+00:01:07,070 --> 00:01:11,280
+or STK, which is used to create Android
+applications.
+
+17
+00:01:11,280 --> 00:01:16,550
+And finally there's tons of documentation,
+tutorials, blogs, and examples
+
+18
+00:01:16,550 --> 00:01:19,280
+that you can use to improve your own
+understanding of Android.
+
+19
+00:01:19,280 --> 00:01:23,250
+And I encourage you to take advantage of
+all of these resources.
+
+20
+00:01:26,320 --> 00:01:29,880
+Now this graphic represents the Android
+software stack and
+
+21
+00:01:29,880 --> 00:01:32,519
+as you can see it's organized into several
+layers.
+
+22
+00:01:33,820 --> 00:01:37,330
+At the bottom, there is a Linux kernel
+layer.
+
+23
+00:01:37,330 --> 00:01:42,400
+Above that, there are system libraries,
+and the Android runtime system.
+
+24
+00:01:42,400 --> 00:01:45,570
+Above that, there's a rich application
+framework
+
+25
+00:01:45,570 --> 00:01:49,200
+layer to support the development of new
+applications.
+
+26
+00:01:49,200 --> 00:01:51,420
+And at the very top, Android provides some
+
+27
+00:01:51,420 --> 00:01:53,050
+standard applications.
+
+28
+00:01:53,050 --> 00:01:57,800
+Again things like the phone dialer, the
+web browser, and contacts database.
+
+29
+00:01:57,800 --> 00:01:59,370
+So let's look at each of these layers
+
+30
+00:01:59,370 --> 00:02:02,120
+in detail, starting with the Linux Kernel
+layer.
+
+31
+00:02:04,410 --> 00:02:09,190
+The Linux Kernel layer is the lowest layer
+of software in the Android platform.
+
+32
+00:02:09,190 --> 00:02:15,850
+This layer provides the core services that
+any Android computing device will rely on.
+
+33
+00:02:15,850 --> 00:02:17,900
+Android's Linux kernel, just like any
+
+34
+00:02:17,900 --> 00:02:22,380
+Linux kernel, provides generic operating
+system services.
+
+35
+00:02:22,380 --> 00:02:26,310
+For example, it provides a permissions
+architecture, so that
+
+36
+00:02:26,310 --> 00:02:29,700
+you can restrict access to data and
+resources to
+
+37
+00:02:29,700 --> 00:02:33,300
+only those processes that have the proper
+authorizations.
+
+38
+00:02:33,300 --> 00:02:36,810
+It supports memory and process management,
+so that multiple
+
+39
+00:02:36,810 --> 00:02:40,540
+processes can run simultaneously without
+interfering with each other.
+
+40
+00:02:41,690 --> 00:02:45,140
+It handles low level details of file, and
+network IO.
+
+41
+00:02:46,730 --> 00:02:50,340
+And it also allows device drivers to be
+plugged in, so that
+
+42
+00:02:50,340 --> 00:02:54,820
+Android can communicate with a wide range
+of low-level hardware components that
+
+43
+00:02:54,820 --> 00:02:56,980
+are often coupled to computing devices.
+
+44
+00:02:56,980 --> 00:02:59,460
+Things like memory, and radios, and
+cameras.
+
+45
+00:03:01,720 --> 00:03:04,260
+In addition to the common services
+supported by any
+
+46
+00:03:04,260 --> 00:03:06,660
+Linux kernel, Android's Linux kernel
+
+47
+00:03:06,660 --> 00:03:10,340
+also includes several Android-specific
+components.
+
+48
+00:03:10,340 --> 00:03:13,760
+For example, Android's Linux kernel
+includes its own power
+
+49
+00:03:13,760 --> 00:03:18,048
+management services because mobile devices
+often run on battery power.
+
+50
+00:03:18,048 --> 00:03:21,180
+It provides its own memory sharing, and
+memory
+
+51
+00:03:21,180 --> 00:03:25,650
+managing features, because mobile devices
+often have limited memory.
+
+52
+00:03:27,130 --> 00:03:29,170
+And Android Linux kernel also includes
+
+53
+00:03:29,170 --> 00:03:32,270
+its own interprocess communication
+mechanism called the
+
+54
+00:03:32,270 --> 00:03:34,880
+binder, which allows multiple processes to
+
+55
+00:03:34,880 --> 00:03:39,050
+share data and services In sophisticated
+ways.
+
+56
+00:03:39,050 --> 00:03:42,530
+And of course, this is just a few of the
+Android-specific features.
+
+57
+00:03:42,530 --> 00:03:43,740
+There are many others as well.
+
+58
+00:03:46,200 --> 00:03:50,510
+Next layer up includes a variety of system
+libraries.
+
+59
+00:03:50,510 --> 00:03:54,190
+These libraries are typically written in C
+and C++ and for
+
+60
+00:03:54,190 --> 00:03:58,200
+that reason they are often referred to as
+the native libraries.
+
+61
+00:03:58,200 --> 00:04:00,780
+And these native libraries handle a lot of
+
+62
+00:04:00,780 --> 00:04:04,360
+the core, performance sensitive activities
+on your device.
+
+63
+00:04:04,360 --> 00:04:08,330
+Things like quickly rendering web pages
+and updating the display.
+
+64
+00:04:09,600 --> 00:04:11,270
+For example, Android has its
+
+65
+00:04:11,270 --> 00:04:16,170
+own System C Library which implements the
+standard OS system calls, which do
+
+66
+00:04:16,170 --> 00:04:19,240
+things like process and thread creation,
+
+67
+00:04:19,240 --> 00:04:23,040
+mathematical computations, memory
+allocation, and much more.
+
+68
+00:04:24,040 --> 00:04:26,730
+There's the surface manager for updating
+the display.
+
+69
+00:04:26,730 --> 00:04:32,055
+A media framework for playing back audio
+and video files.
+
+70
+00:04:32,055 --> 00:04:34,995
+Webkit for rendering and displaying web
+pages.
+
+71
+00:04:34,995 --> 00:04:36,675
+Open GL, for high
+
+72
+00:04:36,675 --> 00:04:44,830
+performance graphics, and SQLite, for
+managing in memory relational databases.
+
+73
+00:04:44,830 --> 00:04:48,170
+In addition to the system libraries, this
+layer also includes
+
+74
+00:04:48,170 --> 00:04:52,979
+the Android run time, which supports
+writing and running Android applications.
+
+75
+00:04:54,740 --> 00:04:56,045
+And there are two components in the
+
+76
+00:04:56,045 --> 00:04:58,280
+Android run time that we'll talk about
+today.
+
+77
+00:04:58,280 --> 00:05:02,740
+The core Java libraries and the Dalvik
+Virtual Machine.
+
+78
+00:05:02,740 --> 00:05:04,970
+Let's talk about each of those one at a
+time.
+
+79
+00:05:06,390 --> 00:05:09,340
+Now first, Android applications are
+typically
+
+80
+00:05:09,340 --> 00:05:11,379
+written in the Java programming language.
+
+81
+00:05:12,660 --> 00:05:16,670
+And to make it easier to write
+applications, Android provides a number of
+
+82
+00:05:16,670 --> 00:05:22,560
+reusable Java building blocks.
+For instance, the Java and Java X or Java
+
+83
+00:05:22,560 --> 00:05:28,300
+Extensions packages include basic software
+for things like common data structure,
+
+84
+00:05:28,300 --> 00:05:30,880
+concurrency mechanisms, and file IO.
+
+85
+00:05:31,900 --> 00:05:34,810
+The Android packages have software that's
+specific
+
+86
+00:05:34,810 --> 00:05:37,580
+to the life cycle of mobile applications.
+
+87
+00:05:37,580 --> 00:05:41,960
+The org packages support various internet,
+or web operations.
+
+88
+00:05:41,960 --> 00:05:45,490
+And the Junit packages support the unit
+testing of applications.
+
+89
+00:05:46,590 --> 00:05:49,920
+The second part of the Android Runtime, is
+the Dalvik Virtual Machine.
+
+90
+00:05:51,060 --> 00:05:53,310
+The Dalvik Virtual Machine is the software
+
+91
+00:05:53,310 --> 00:05:57,260
+that actually executes Android
+applications.
+
+92
+00:05:57,260 --> 00:05:58,830
+Now, as I just told you,
+
+93
+00:05:58,830 --> 00:06:01,960
+Android applications are typically written
+in Java.
+
+94
+00:06:01,960 --> 00:06:04,310
+So you might have assumed that since
+they're written in
+
+95
+00:06:04,310 --> 00:06:09,790
+Java they would probably run on a standard
+Java virtual machine.
+
+96
+00:06:09,790 --> 00:06:11,670
+But in fact, that's not the case.
+
+97
+00:06:11,670 --> 00:06:18,360
+What typically happens is that developers
+first write their applications in the Java
+
+98
+00:06:18,360 --> 00:06:19,760
+programming language.
+
+99
+00:06:19,760 --> 00:06:22,370
+Then, a Java compiler will compile the
+Java
+
+100
+00:06:22,370 --> 00:06:26,980
+source code files into multiple Java
+bytecode files.
+
+101
+00:06:26,980 --> 00:06:31,180
+Next, a tool called DX transforms the Java
+bytecodes into
+
+102
+00:06:31,180 --> 00:06:35,080
+a single file of a different bytecode
+format called dex.
+
+103
+00:06:35,080 --> 00:06:37,410
+And this bytecode file is usually called
+classes.dex.
+
+104
+00:06:37,410 --> 00:06:40,350
+Next, the dex file is packaged with
+
+105
+00:06:40,350 --> 00:06:43,610
+other application resources and installed
+on the device.
+
+106
+00:06:44,620 --> 00:06:47,680
+And finally, when the user launches the
+application, the
+
+107
+00:06:47,680 --> 00:06:51,570
+Dalvik virtual machine will then execute
+the classes.dex file.
+
+108
+00:06:52,700 --> 00:06:54,340
+Now, the reason for doing all this is
+
+109
+00:06:54,340 --> 00:06:57,410
+that the Dalvik virtual machine, unlike
+the Java
+
+110
+00:06:57,410 --> 00:07:00,330
+virtual machine, was specifically designed
+to run in
+
+111
+00:07:00,330 --> 00:07:04,840
+the resource-constrained environment which
+is typical of mobile devices.
+
+112
+00:07:04,840 --> 00:07:07,460
+And when I say resource-constrained, what
+I
+
+113
+00:07:07,460 --> 00:07:09,620
+mean is that compared to a typical desktop
+
+114
+00:07:09,620 --> 00:07:16,328
+device, the typical mobile device is less
+powerful and more limited in many ways.
+
+115
+00:07:16,328 --> 00:07:18,920
+For example, it will probably have a
+slower
+
+116
+00:07:18,920 --> 00:07:23,000
+CPU, less memory, and a limited battery
+life.
+
+117
+00:07:24,930 --> 00:07:26,600
+So, if you're interested in finding out
+more
+
+118
+00:07:26,600 --> 00:07:29,240
+about the Dalvik Virtual Machine itself,
+then I
+
+119
+00:07:29,240 --> 00:07:31,520
+recommend you take a look at this video,
+
+120
+00:07:31,520 --> 00:07:34,860
+Dalvik VM Internals, by Dan Bornstein of
+Google.
+
+121
+00:07:37,070 --> 00:07:41,920
+The next layer in the Android software
+stack is the application framework.
+
+122
+00:07:41,920 --> 00:07:45,000
+The application framework contains
+reusable software that
+
+123
+00:07:45,000 --> 00:07:48,050
+many mobile applications are likely to
+need.
+
+124
+00:07:48,050 --> 00:07:49,710
+For example, as we'll see in a
+
+125
+00:07:49,710 --> 00:07:53,760
+minute, the view system contains common
+graphical elements.
+
+126
+00:07:53,760 --> 00:07:55,875
+Things like buttons and icons that
+
+127
+00:07:55,875 --> 00:07:59,505
+many applications include in their user
+interfaces.
+
+128
+00:07:59,505 --> 00:08:01,760
+Let's take a deeper look at some of these
+components.
+
+129
+00:08:03,580 --> 00:08:06,460
+One application framework component is the
+package manager.
+
+130
+00:08:06,460 --> 00:08:09,590
+The package manager is essentially a
+database that keeps
+
+131
+00:08:09,590 --> 00:08:13,179
+track of all the applications currently
+installed on your device.
+
+132
+00:08:15,510 --> 00:08:17,690
+So here's the home screen of my phone.
+
+133
+00:08:20,420 --> 00:08:24,210
+When I click on the launcher icon, the
+phone shows me a bunch
+
+134
+00:08:24,210 --> 00:08:26,480
+of icons, each one representing an
+
+135
+00:08:26,480 --> 00:08:28,700
+application package that's stored on my
+phone.
+
+136
+00:08:29,940 --> 00:08:33,890
+The package manager stores information
+about these applications.
+
+137
+00:08:33,890 --> 00:08:36,730
+And that's useful for several reasons.
+
+138
+00:08:36,730 --> 00:08:40,940
+For example, it allows applications to
+find and contact each
+
+139
+00:08:40,940 --> 00:08:45,650
+other, so that one application can share
+data with another application,
+
+140
+00:08:45,650 --> 00:08:48,930
+or so that one application can request
+services from another.
+
+141
+00:08:50,890 --> 00:08:55,040
+Another application framework component is
+the window manager.
+
+142
+00:08:55,040 --> 00:08:57,840
+The window manager, as the name suggests,
+
+143
+00:08:57,840 --> 00:09:01,770
+manages the many windows that comprise
+applications.
+
+144
+00:09:04,680 --> 00:09:10,280
+Here I'm launching the browser
+application, which appears as two windows.
+
+145
+00:09:10,280 --> 00:09:12,520
+At the top, there's the system
+notification
+
+146
+00:09:12,520 --> 00:09:16,360
+bar, which displays various status
+indicators that tell
+
+147
+00:09:16,360 --> 00:09:18,994
+the user about things like WiFi signal
+
+148
+00:09:18,994 --> 00:09:22,630
+strength, remaining battery power, and the
+current time.
+
+149
+00:09:23,740 --> 00:09:26,340
+There's also a main application window
+that in
+
+150
+00:09:26,340 --> 00:09:28,550
+this case is showing the current web page.
+
+151
+00:09:30,060 --> 00:09:32,780
+An application can also use various
+sub-windows
+
+152
+00:09:32,780 --> 00:09:35,570
+such as when it shows menus or dialogues.
+
+153
+00:09:38,450 --> 00:09:43,440
+As I mentioned earlier, the application
+framework also contains the view system.
+
+154
+00:09:43,440 --> 00:09:47,550
+The view system contains many common
+graphical user interface elements.
+
+155
+00:09:47,550 --> 00:09:51,900
+Such as icons, text entry boxes, buttons,
+and much more.
+
+156
+00:09:51,900 --> 00:09:53,820
+Let's take a look at the phone
+application.
+
+157
+00:09:59,840 --> 00:10:03,120
+As you can see the phone application's top
+level
+
+158
+00:10:03,120 --> 00:10:07,300
+user interface is organized as a set of
+tabs.
+
+159
+00:10:07,300 --> 00:10:10,660
+And each tab corresponds to a different
+user
+
+160
+00:10:10,660 --> 00:10:13,630
+interface that supports a different set of
+tasks.
+
+161
+00:10:14,900 --> 00:10:17,990
+The phone tab shows me a phone dialer.
+
+162
+00:10:17,990 --> 00:10:22,980
+The call log tab shows a list of recent
+incoming and outgoing calls.
+
+163
+00:10:22,980 --> 00:10:25,080
+And the contacts tab shows a list
+
+164
+00:10:25,080 --> 00:10:26,250
+of stored contacts.
+
+165
+00:10:28,360 --> 00:10:31,360
+Now as I just said, when I select the
+phone tab,
+
+166
+00:10:31,360 --> 00:10:35,810
+I'm show, shown a user interface that
+mimics a phone keypad.
+
+167
+00:10:35,810 --> 00:10:37,600
+That keypad is made up of view
+
+168
+00:10:37,600 --> 00:10:40,720
+system components, things like buttons and
+text views.
+
+169
+00:10:40,720 --> 00:10:46,580
+And then the application will listen as I
+press these buttons, and then respond by
+
+170
+00:10:46,580 --> 00:10:51,030
+writing the corresponding digits to a text
+view to show me what number I'm dialing.
+
+171
+00:10:52,900 --> 00:10:53,880
+The next application
+
+172
+00:10:53,880 --> 00:10:56,330
+framework component is the resource
+manager.
+
+173
+00:10:57,660 --> 00:11:02,320
+This component manages the non-compiled
+resources that make up an application.
+
+174
+00:11:02,320 --> 00:11:07,260
+Things like strings, graphics, and user
+interface layout files.
+
+175
+00:11:08,500 --> 00:11:12,620
+And to give you an example of non-compiled
+resources, let's go back to the phone
+
+176
+00:11:12,620 --> 00:11:19,749
+application again.
+Now this tab has
+
+177
+00:11:19,749 --> 00:11:29,110
+some English words on it.
+And that's fine because I speak English.
+
+178
+00:11:31,480 --> 00:11:33,430
+But Android is available around the world.
+
+179
+00:11:33,430 --> 00:11:36,580
+It's not limited to English speakers, and
+so it's important that
+
+180
+00:11:36,580 --> 00:11:41,230
+we have an easy way to customize
+applications for other languages.
+
+181
+00:11:41,230 --> 00:11:42,940
+And one way that Android supports that is
+
+182
+00:11:42,940 --> 00:11:47,410
+that it lets you define strings in
+multiple languages.
+
+183
+00:11:47,410 --> 00:11:50,280
+For example, the phone application has a
+string file
+
+184
+00:11:50,280 --> 00:11:53,910
+for Italian words as well as one for
+English words.
+
+185
+00:11:53,910 --> 00:11:56,700
+So if you speak Italian, then you can go
+into the settings
+
+186
+00:11:56,700 --> 00:11:59,892
+application and select Italian as your
+default language.
+
+187
+00:11:59,892 --> 00:12:06,140
+Now, if I go back and rerun
+
+188
+00:12:06,140 --> 00:12:12,104
+the phone application,
+
+189
+00:12:12,104 --> 00:12:18,068
+you'll see that Android
+
+190
+00:12:18,068 --> 00:12:24,032
+will use the appropriate
+
+191
+00:12:24,032 --> 00:12:30,280
+Italian words rather than
+
+192
+00:12:30,280 --> 00:12:36,440
+the English words.
+And of course
+
+193
+00:12:36,440 --> 00:12:39,990
+you can do this for as many languages as
+makes sense for your application.
+
+194
+00:12:43,340 --> 00:12:46,620
+Another application framework component is
+the activity manager.
+
+195
+00:12:48,030 --> 00:12:50,560
+Now at a high level Android activities
+
+196
+00:12:50,560 --> 00:12:53,360
+often correspond to a single user
+interface screen.
+
+197
+00:12:54,740 --> 00:12:58,360
+Applications are then created by stringing
+together
+
+198
+00:12:58,360 --> 00:13:01,980
+multiple activities through which the user
+can navigate.
+
+199
+00:13:01,980 --> 00:13:07,060
+The Activity Manager helps to coordinate
+and support that kind of navigation.
+
+200
+00:13:07,060 --> 00:13:08,350
+So suppose I want to listen to
+
+201
+00:13:08,350 --> 00:13:09,010
+some music.
+
+202
+00:13:12,120 --> 00:13:15,510
+So here I'll click on the launcher icon to
+show my applications.
+
+203
+00:13:17,820 --> 00:13:19,950
+From there, I can click on the music
+player
+
+204
+00:13:19,950 --> 00:13:23,880
+icon and that will start an activity that
+brings
+
+205
+00:13:23,880 --> 00:13:27,710
+up a user interface screen showing the
+music I
+
+206
+00:13:27,710 --> 00:13:31,000
+have on my device, in this case sorted by
+artist.
+
+207
+00:13:32,490 --> 00:13:36,810
+I can select an artist and see the albums
+by that artist.
+
+208
+00:13:38,790 --> 00:13:41,380
+I can select one album by clicking on it.
+
+209
+00:13:43,000 --> 00:13:46,110
+And this starts another activity that
+brings up another user
+
+210
+00:13:46,110 --> 00:13:51,150
+interface screen showing the songs in the
+album I just selected.
+
+211
+00:13:52,620 --> 00:13:55,350
+Now if I hit the Back button, I can go
+back to
+
+212
+00:13:55,350 --> 00:13:59,170
+the last activity and, for example, I can
+choose a different album.
+
+213
+00:14:00,980 --> 00:14:03,820
+Now I can click on a specific song in that
+album
+
+214
+00:14:05,120 --> 00:14:08,450
+and yet another activity starts up, that
+brings up yet another
+
+215
+00:14:08,450 --> 00:14:12,510
+user interface screen, allowing me to play
+this song.
+
+216
+00:14:15,700 --> 00:14:19,820
+Another application framework component
+implements content providers.
+
+217
+00:14:21,270 --> 00:14:24,350
+Content providers are essentially
+databases that allow
+
+218
+00:14:24,350 --> 00:14:28,880
+applications to store and share structured
+information.
+
+219
+00:14:28,880 --> 00:14:32,970
+For example, here we see that the phone
+application can access
+
+220
+00:14:32,970 --> 00:14:38,160
+stored contact information and use it to
+dial a phone number.
+
+221
+00:14:38,160 --> 00:14:40,910
+And it can do that because the contact
+information is
+
+222
+00:14:40,910 --> 00:14:43,310
+stored in a content provider.
+
+223
+00:14:43,310 --> 00:14:47,810
+And even better, content providers are
+designed to work across applications.
+
+224
+00:14:47,810 --> 00:14:51,070
+So not only can the phone dialer use the
+contact information, but
+
+225
+00:14:51,070 --> 00:14:56,370
+so can the MMSM, messaging application and
+so can various social media applications.
+
+226
+00:14:56,370 --> 00:14:57,000
+Let's take a look.
+
+227
+00:14:59,170 --> 00:15:01,410
+So going back to the phone application, I
+can
+
+228
+00:15:01,410 --> 00:15:06,170
+select the Contact tab to access stored
+contact information.
+
+229
+00:15:06,170 --> 00:15:10,870
+I can select one of the contacts to
+quickly dial that contact.
+
+230
+00:15:10,870 --> 00:15:12,090
+Now as I said, I can do that
+
+231
+00:15:12,090 --> 00:15:16,290
+because contact information is stored in a
+content provider.
+
+232
+00:15:16,290 --> 00:15:21,160
+And again, even better, content providers
+are designed to work across applications.
+
+233
+00:15:21,160 --> 00:15:24,440
+So not only can the phone dialer use the
+contacts but so can
+
+234
+00:15:24,440 --> 00:15:28,290
+the MMS messaging application, and so can
+Twitter,
+
+235
+00:15:28,290 --> 00:15:32,570
+Facebook, my email readers, and things
+like that.
+
+236
+00:15:32,570 --> 00:15:36,500
+The next application framework component
+is the location manager.
+
+237
+00:15:36,500 --> 00:15:40,240
+The location manager allows applications
+to receive location and
+
+238
+00:15:40,240 --> 00:15:44,250
+movement information, such as that
+generated by the GPS system.
+
+239
+00:15:45,250 --> 00:15:49,430
+And this allows applications to perform
+context-specific tasks,
+
+240
+00:15:49,430 --> 00:15:52,150
+things like finding directions from the
+current location.
+
+241
+00:15:55,790 --> 00:15:56,990
+Now here I'm calling up the Google
+
+242
+00:15:56,990 --> 00:16:00,590
+Maps application, which queries the
+location manager for
+
+243
+00:16:00,590 --> 00:16:06,450
+my current location, and then shows a map
+of the area around that current location.
+
+244
+00:16:08,480 --> 00:16:10,330
+The last application framework component
+I'll
+
+245
+00:16:10,330 --> 00:16:14,210
+talk about today is the Notification
+Manager.
+
+246
+00:16:14,210 --> 00:16:17,024
+The Notification Manager allows
+applications to
+
+247
+00:16:17,024 --> 00:16:20,280
+place information in the Notification Bar.
+
+248
+00:16:20,280 --> 00:16:23,640
+For example, to let users know that
+certain events have occurred.
+
+249
+00:16:26,100 --> 00:16:30,850
+For example, suppose I want to send my
+wife an MMS message.
+
+250
+00:16:30,850 --> 00:16:33,990
+And let's suppose that right at this
+minute, she's
+
+251
+00:16:33,990 --> 00:16:37,672
+writing an email or making a phone call or
+whatever.
+
+252
+00:16:37,672 --> 00:16:40,780
+So although she probably wants to know
+that I've sent her an
+
+253
+00:16:40,780 --> 00:16:44,980
+MMS message, she might not want that to
+disrupt her right now.
+
+254
+00:16:44,980 --> 00:16:48,880
+Well, Android handles this with a
+Notification Manager.
+
+255
+00:16:48,880 --> 00:16:51,840
+And the way that works is that there's
+some software
+
+256
+00:16:51,840 --> 00:16:56,480
+running on her phone, that's always
+listening for incoming MMS messages.
+
+257
+00:16:57,630 --> 00:17:01,900
+When one arrives, that software uses the
+Notification Manager
+
+258
+00:17:01,900 --> 00:17:05,170
+to place an icon in her phone's
+notification bar.
+
+259
+00:17:05,170 --> 00:17:09,980
+And that's shown here as a little smiley
+face icon.
+
+260
+00:17:09,980 --> 00:17:12,950
+And I've whited out some of the, some of
+the information there for privacy.
+
+261
+00:17:12,950 --> 00:17:17,140
+And when shes ready she can pull down on
+the notification
+
+262
+00:17:17,140 --> 00:17:21,550
+bar which then shows more information
+about the specific notification.
+
+263
+00:17:21,550 --> 00:17:25,290
+And if she clicks on that notification the
+MMS application will
+
+264
+00:17:25,290 --> 00:17:28,449
+start up and she can read and hopefully
+respond to my message.
+
+265
+00:17:33,870 --> 00:17:38,170
+The last layer of the Android software
+stack is the Application layer.
+
+266
+00:17:38,170 --> 00:17:41,820
+As I said earlier, Android comes with some
+built-in applications.
+
+267
+00:17:43,230 --> 00:17:46,840
+And these include things like the Home
+Screen, the
+
+268
+00:17:46,840 --> 00:17:52,640
+Phone Dialer, the Web Browser, an Email
+Reader, and more.
+
+269
+00:17:52,640 --> 00:17:55,290
+And one of the things that's really nice
+about Android
+
+270
+00:17:55,290 --> 00:17:59,090
+is that none of these apps is hardcoded
+into the system.
+
+271
+00:18:00,460 --> 00:18:02,000
+If you have a better app, you can
+
+272
+00:18:02,000 --> 00:18:04,590
+substitute your app for any of these
+standard apps.
+
+273
+00:18:06,500 --> 00:18:09,090
+So that's all for the Android platform.
+
+274
+00:18:09,090 --> 00:18:10,650
+Please join me next time, when
+
+275
+00:18:10,650 --> 00:18:14,090
+we'll explore the Android Development
+Environment.
+
+276
+00:18:14,090 --> 00:18:16,000
+See you then.
+

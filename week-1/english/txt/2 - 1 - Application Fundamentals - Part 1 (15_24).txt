@@ -1,0 +1,369 @@
+Hi, I'm Adam Porter, and this is,
+Programming Mobile Applications for
+Android Handheld Systems.
+Today, we're going to talk about the four
+fundamental
+building blocks from which all Android
+applications are built.
+These building blocks are implemented as
+Java classes.
+And the first of these building blocks is
+the activity class.
+Now that's the main class that users see
+when the run an application.
+Activities are designed to provide a
+graphical user interface, or a GUI, to the
+user, and this enables users to give
+and receive information to and from an
+application.
+The remaining three components work behind
+the
+scenes, so they don't have user
+interfaces.
+And these components include services
+for supporting long running or in the
+background operations.
+Broadcast receivers that listen for and
+respond to events that happen on a device.
+And content providers which allow multiple
+applications to store and share data.
+Applications are typically created from
+multiple collaborating components,
+which Android starts up and runs as
+necessary.
+And each of these components serves
+a different purpose in the Android
+ecosystem.
+And therefore, has it own entry point, and
+its own APIs.
+Let's take a look at each of these
+components one at a time.
+First, let's talk about the activity
+class.
+As I said earlier, this class is designed
+to present a graphical user
+interface to the user and to capture the
+user's interaction through that interface.
+As a general rule of thumb, an activity
+should
+support a single focused thing that the
+user can do.
+A single thing, like dialing a phone
+number or
+entering contact information for a single
+person, and so on.
+Now, of course, as device screens,
+especially those
+on tablets, get larger and larger, what we
+mean by a single focus thing that the user
+can do is, of course, bound to change.
+Now, as an example of an activity, let's
+take a look at the phone dialer
+application.
+Here I'll show you the phone application
+running on an actual device.
+You'll remember from earlier lessons
+that the phone application can open a user
+interface with multiple tabs.
+One for a phone dialer, one for the call
+log, and one for a contact list.
+In Android 4.2, this application's source
+code
+is actually part of the contacts
+application.
+And it's written in a file called
+dialtectsactivity.java.
+Here I'll open that file.
+As you can see the dial tects activity
+class is a subclass of activity.
+And the comments here
+explain that this activity is supposed to
+display a tab containing
+the phone, the phone dialer, the call log
+and the contacts list that I mentioned
+earlier.
+Let me pause here and give you a chance
+to explore this source code for yourself.
+The next component is the Service Class.
+Unlike activity, services run in the
+background.
+So there's no need for services to have
+user interfaces.
+Instead, services have two main purposes.
+One, they can perform long running
+operations,
+typically away from the main UI thread.
+And two, they provide a way for
+different processes to request operations
+and share data.
+Now for an example of a service, let's
+take a look at the music application.
+So here I'll show you the music
+application running on a device.
+As you can see the music application has a
+number of different user interface screens
+that show, for
+example, your music Showing the songs
+performed by a
+single artist, letting you select one song
+by that artist,
+and finally letting you play that one
+song.
+Now if you start playing a song, however,
+and then decide
+to back up and see what other songs that
+artist has.
+Or if you want to do something totally
+different, like check
+your email, you probably don't want the
+music to stop playing.
+So Android handles this by using a service
+to play the music.
+Now here I'll go to the music application
+and open
+the MediaPlaybackService.java file.
+As you can see, the media playback service
+is a subclass, of service.
+And the comments explain that this service
+allows the music
+to keep playing, even if the user switches
+between different activities.
+And again, let me pause here and give you
+a chance to explore this source code for
+yourself.
+The next component is broadcast receiver.
+Broadcast receiver's listen for and
+respond to events.
+And essentially they play the role
+of the subscriber in the publish/subscribe
+pattern.
+In Android, events are represented by the
+intent class.
+Which we'll talk about more in later
+classes.
+Publishers create these intents and then
+broadcast
+them using a method like the context
+classes, send broadcasts.
+Now, once broadcasted, these intents are
+then routed to the broadcast
+receivers that have subscribed to, or
+registered for, those specific intents.
+At which point, they can respond to the
+event.
+Now, the messaging application is one
+example
+application that makes use of broadcast
+receivers.
+Let's take a look at that application.
+So
+let's imagine that somewhere out there in
+the world, someone decides that they want
+to send me an SMS message.
+That SMS message will be created and
+sent and will flow through the telephone
+network and eventually arrive at my phone.
+And when it does, Android will put a
+notification icon in the
+notification bar to let me know that an
+SMS message has arrived
+for me.
+Now of course, you can't know exactly when
+you're going to receive such a message.
+So Android has some software that just
+sits and waits for SMS messages to arrive.
+And when they do, that software broadcasts
+an SMS_received intent.
+And there is another broadcast receiver
+that is listening for that intent and
+that broadcast receiver will eventually
+receive the intent and will then start up
+a service that will download and store the
+incoming SMS message.
+Now here I'll go to the MMS application
+and open one of its broadcast receivers.
+SMSreceiver.java.
+As you can see, the SMS receiver class is
+a subclass of broadcast receiver.
+And the
+comments explain that this broadcast
+receiver
+hands off the incoming SMS mesage to
+a service which takes care of the
+downloading and storage of the message.
+Now once more, let's pause here and
+explore the sorch-, the source code for
+yourself.
+The last component is content provider.
+Content provider allows applications to
+store and share data.
+Content providers uses a database-style
+interface
+but they're more than just databases.
+For example, content providers will handle
+the low-level details of inter-process
+communication.
+So that applications running in separate
+processes
+can communicate and exchange data safely
+and easily.
+The browser application is one example of
+an application that
+uses content providers.
+So here I'll start the browser
+application.
+If I click on the icon next to the address
+bar, the browser opens a list of
+bookmarks, or saved addresses,
+for websites that I might want to access
+quickly in the future.
+When a user adds one of these bookmarks,
+the browser application stores it in a
+content provider.
+Let's open the browser application source
+code,
+and take a look at the
+browserprovider.java file.
+As you can see, the browser provider is a
+subclass of content provider.
+And if we nose around a bit in the source
+code, you can see some suggestions that
+there's a database
+table called bookmarks.
+Which is used for storing the bookmarks
+that the user adds.
+Now I'll pause again here and let you
+explore this source code for yourself.
+In our last class we looked at the Hello
+Android application.
+That simple application involved just a
+single activity.
+Today, however, we're going to look at a
+more complex application.
+In this case comprised of two activities.
+And, of course, once you know how to use
+two activities, adding a
+third, and a forth and so on, will just be
+more of the same.
+This application is called MapLocation and
+one of its activities
+allows the user to enter a postal address.
+That activity also provides a button that
+the user
+can press, once he or she has entered that
+address.
+And pressing that button will then start
+up a second activity, Google Maps,
+that presents a map centered on the
+address that the user just entered.
+Let's take a look.
+Now this
+graphic depicts the process of writing and
+building Android applications.
+First, you create the source code and the
+non-source code resources that make up
+your application.
+Next, tools compile your source code, and
+prepare your resources.
+The output of this step is an Android
+package or APK which corresponds to your
+application's executable.
+Next the APK is digitally signed, to
+identify you as its developer
+and finally the APK is installed on a
+device or emulator and run.
+As a developer, your participation in the
+build
+process will usually involve the following
+four steps.
+Defining resources.
+Implementing the application classes.
+Packaging the application, and installing
+and running the application.
+In particular, for testing and debugging.
+Step 1, is defining your application's
+resources.
+As I've said before, Android applications
+are more than just source code.
+They include non-source code entities as
+well, things like
+layout files, strings, images, menus,
+animations and much more.
+And managing resources separately from the
+application has several benefits.
+One of which is that you can easily alter
+those resources
+without having to change or recompile your
+applications source code in any way.
+One common resource type is strings.
+In Android there are three types of string
+resources.
+Individual strings.
+Arrays of strings and plurals.
+Now I think strings and, and arrays of
+strings are pretty self explanatory, let's
+talk about plurals.
+Plurals are basically string arrays
+that can be used to choose specific
+strings that are
+associated with certain quantities, such
+as one book, or two books.
+And the strings are typically stored in an
+XML file in the res/values directory of
+your application.
+And the format is a, an XML string
+tag containing a name attribute and then
+containing
+the actual string itself.
+And that actual string can include
+formatting and styling information.
+Things like HTML tags for example.
+Finally, other resource files can refer to
+the strings that you've defined as
+@string/string_name.
+In Java code, you can also access these
+strings, but this time you do it as
+R.string.string_name.
+So, here we are again in Eclipse.
+I've defined some strings for the Map
+Location application.
+Let's open the strings.xml file in the
+res/values directory.
+This file shows two strings,
+show_map_string
+with the value, show map.
+And location_string,
+with the value, enter location.
+Now, I've also
+defined a second string's.xml file.
+This time for the Italian
+language.
+And it's in the res/values-it directory.
+And that IT prefix in the directory name,
+is what tells
+Android that this is the string file for
+the Italian language.
+Now if we look at that file, we'll
+see the same two strings, show_map_string
+and location_string.
+But this time their values are Italian
+words rather than English words.
+In the example I just showed, if your
+default language
+is Italian then location string will have
+the value digita l'indirizzo.
+Otherwise, it'll have the value enter
+location.
+Let's see that in action.
+Now I'm going to run Map Location twice.
+The phone on the left uses English as its
+default language.
+While the phone on the right uses Italian
+as its default language.
+Now as you can see, although both phones
+are using the same exact source code, the
+phone on the left, displays English
+strings, while
+the phone on the right, displays Italian
+strings.
+

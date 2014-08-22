@@ -1,0 +1,492 @@
+Hi, I'm Adam Porter, and this is
+Programming Mobile Applications for
+Android Handheld Systems.
+Today I am going to introduce you to the
+Android platform.
+I'll start by giving you an overview of
+the
+Android platform, and the components that
+make it up.
+And then I'll present each of these
+components and
+discuss how they help developers build
+great mobile applications.
+So let's get started.
+The Android platform is a software stack.
+And it was designed primarily, but not
+exclusively, to support mobile devices
+such as phones and tablets.
+And this stack has several layers going
+all the
+way from low level operating system
+services that manage
+the device itself up to sample
+applications, things like
+the phone dialer, the context database,
+and a web browser.
+Android also comes with a software
+developers kit,
+or STK, which is used to create Android
+applications.
+And finally there's tons of documentation,
+tutorials, blogs, and examples
+that you can use to improve your own
+understanding of Android.
+And I encourage you to take advantage of
+all of these resources.
+Now this graphic represents the Android
+software stack and
+as you can see it's organized into several
+layers.
+At the bottom, there is a Linux kernel
+layer.
+Above that, there are system libraries,
+and the Android runtime system.
+Above that, there's a rich application
+framework
+layer to support the development of new
+applications.
+And at the very top, Android provides some
+standard applications.
+Again things like the phone dialer, the
+web browser, and contacts database.
+So let's look at each of these layers
+in detail, starting with the Linux Kernel
+layer.
+The Linux Kernel layer is the lowest layer
+of software in the Android platform.
+This layer provides the core services that
+any Android computing device will rely on.
+Android's Linux kernel, just like any
+Linux kernel, provides generic operating
+system services.
+For example, it provides a permissions
+architecture, so that
+you can restrict access to data and
+resources to
+only those processes that have the proper
+authorizations.
+It supports memory and process management,
+so that multiple
+processes can run simultaneously without
+interfering with each other.
+It handles low level details of file, and
+network IO.
+And it also allows device drivers to be
+plugged in, so that
+Android can communicate with a wide range
+of low-level hardware components that
+are often coupled to computing devices.
+Things like memory, and radios, and
+cameras.
+In addition to the common services
+supported by any
+Linux kernel, Android's Linux kernel
+also includes several Android-specific
+components.
+For example, Android's Linux kernel
+includes its own power
+management services because mobile devices
+often run on battery power.
+It provides its own memory sharing, and
+memory
+managing features, because mobile devices
+often have limited memory.
+And Android Linux kernel also includes
+its own interprocess communication
+mechanism called the
+binder, which allows multiple processes to
+share data and services In sophisticated
+ways.
+And of course, this is just a few of the
+Android-specific features.
+There are many others as well.
+Next layer up includes a variety of system
+libraries.
+These libraries are typically written in C
+and C++ and for
+that reason they are often referred to as
+the native libraries.
+And these native libraries handle a lot of
+the core, performance sensitive activities
+on your device.
+Things like quickly rendering web pages
+and updating the display.
+For example, Android has its
+own System C Library which implements the
+standard OS system calls, which do
+things like process and thread creation,
+mathematical computations, memory
+allocation, and much more.
+There's the surface manager for updating
+the display.
+A media framework for playing back audio
+and video files.
+Webkit for rendering and displaying web
+pages.
+Open GL, for high
+performance graphics, and SQLite, for
+managing in memory relational databases.
+In addition to the system libraries, this
+layer also includes
+the Android run time, which supports
+writing and running Android applications.
+And there are two components in the
+Android run time that we'll talk about
+today.
+The core Java libraries and the Dalvik
+Virtual Machine.
+Let's talk about each of those one at a
+time.
+Now first, Android applications are
+typically
+written in the Java programming language.
+And to make it easier to write
+applications, Android provides a number of
+reusable Java building blocks.
+For instance, the Java and Java X or Java
+Extensions packages include basic software
+for things like common data structure,
+concurrency mechanisms, and file IO.
+The Android packages have software that's
+specific
+to the life cycle of mobile applications.
+The org packages support various internet,
+or web operations.
+And the Junit packages support the unit
+testing of applications.
+The second part of the Android Runtime, is
+the Dalvik Virtual Machine.
+The Dalvik Virtual Machine is the software
+that actually executes Android
+applications.
+Now, as I just told you,
+Android applications are typically written
+in Java.
+So you might have assumed that since
+they're written in
+Java they would probably run on a standard
+Java virtual machine.
+But in fact, that's not the case.
+What typically happens is that developers
+first write their applications in the Java
+programming language.
+Then, a Java compiler will compile the
+Java
+source code files into multiple Java
+bytecode files.
+Next, a tool called DX transforms the Java
+bytecodes into
+a single file of a different bytecode
+format called dex.
+And this bytecode file is usually called
+classes.dex.
+Next, the dex file is packaged with
+other application resources and installed
+on the device.
+And finally, when the user launches the
+application, the
+Dalvik virtual machine will then execute
+the classes.dex file.
+Now, the reason for doing all this is
+that the Dalvik virtual machine, unlike
+the Java
+virtual machine, was specifically designed
+to run in
+the resource-constrained environment which
+is typical of mobile devices.
+And when I say resource-constrained, what
+I
+mean is that compared to a typical desktop
+device, the typical mobile device is less
+powerful and more limited in many ways.
+For example, it will probably have a
+slower
+CPU, less memory, and a limited battery
+life.
+So, if you're interested in finding out
+more
+about the Dalvik Virtual Machine itself,
+then I
+recommend you take a look at this video,
+Dalvik VM Internals, by Dan Bornstein of
+Google.
+The next layer in the Android software
+stack is the application framework.
+The application framework contains
+reusable software that
+many mobile applications are likely to
+need.
+For example, as we'll see in a
+minute, the view system contains common
+graphical elements.
+Things like buttons and icons that
+many applications include in their user
+interfaces.
+Let's take a deeper look at some of these
+components.
+One application framework component is the
+package manager.
+The package manager is essentially a
+database that keeps
+track of all the applications currently
+installed on your device.
+So here's the home screen of my phone.
+When I click on the launcher icon, the
+phone shows me a bunch
+of icons, each one representing an
+application package that's stored on my
+phone.
+The package manager stores information
+about these applications.
+And that's useful for several reasons.
+For example, it allows applications to
+find and contact each
+other, so that one application can share
+data with another application,
+or so that one application can request
+services from another.
+Another application framework component is
+the window manager.
+The window manager, as the name suggests,
+manages the many windows that comprise
+applications.
+Here I'm launching the browser
+application, which appears as two windows.
+At the top, there's the system
+notification
+bar, which displays various status
+indicators that tell
+the user about things like WiFi signal
+strength, remaining battery power, and the
+current time.
+There's also a main application window
+that in
+this case is showing the current web page.
+An application can also use various
+sub-windows
+such as when it shows menus or dialogues.
+As I mentioned earlier, the application
+framework also contains the view system.
+The view system contains many common
+graphical user interface elements.
+Such as icons, text entry boxes, buttons,
+and much more.
+Let's take a look at the phone
+application.
+As you can see the phone application's top
+level
+user interface is organized as a set of
+tabs.
+And each tab corresponds to a different
+user
+interface that supports a different set of
+tasks.
+The phone tab shows me a phone dialer.
+The call log tab shows a list of recent
+incoming and outgoing calls.
+And the contacts tab shows a list
+of stored contacts.
+Now as I just said, when I select the
+phone tab,
+I'm show, shown a user interface that
+mimics a phone keypad.
+That keypad is made up of view
+system components, things like buttons and
+text views.
+And then the application will listen as I
+press these buttons, and then respond by
+writing the corresponding digits to a text
+view to show me what number I'm dialing.
+The next application
+framework component is the resource
+manager.
+This component manages the non-compiled
+resources that make up an application.
+Things like strings, graphics, and user
+interface layout files.
+And to give you an example of non-compiled
+resources, let's go back to the phone
+application again.
+Now this tab has
+some English words on it.
+And that's fine because I speak English.
+But Android is available around the world.
+It's not limited to English speakers, and
+so it's important that
+we have an easy way to customize
+applications for other languages.
+And one way that Android supports that is
+that it lets you define strings in
+multiple languages.
+For example, the phone application has a
+string file
+for Italian words as well as one for
+English words.
+So if you speak Italian, then you can go
+into the settings
+application and select Italian as your
+default language.
+Now, if I go back and rerun
+the phone application,
+you'll see that Android
+will use the appropriate
+Italian words rather than
+the English words.
+And of course
+you can do this for as many languages as
+makes sense for your application.
+Another application framework component is
+the activity manager.
+Now at a high level Android activities
+often correspond to a single user
+interface screen.
+Applications are then created by stringing
+together
+multiple activities through which the user
+can navigate.
+The Activity Manager helps to coordinate
+and support that kind of navigation.
+So suppose I want to listen to
+some music.
+So here I'll click on the launcher icon to
+show my applications.
+From there, I can click on the music
+player
+icon and that will start an activity that
+brings
+up a user interface screen showing the
+music I
+have on my device, in this case sorted by
+artist.
+I can select an artist and see the albums
+by that artist.
+I can select one album by clicking on it.
+And this starts another activity that
+brings up another user
+interface screen showing the songs in the
+album I just selected.
+Now if I hit the Back button, I can go
+back to
+the last activity and, for example, I can
+choose a different album.
+Now I can click on a specific song in that
+album
+and yet another activity starts up, that
+brings up yet another
+user interface screen, allowing me to play
+this song.
+Another application framework component
+implements content providers.
+Content providers are essentially
+databases that allow
+applications to store and share structured
+information.
+For example, here we see that the phone
+application can access
+stored contact information and use it to
+dial a phone number.
+And it can do that because the contact
+information is
+stored in a content provider.
+And even better, content providers are
+designed to work across applications.
+So not only can the phone dialer use the
+contact information, but
+so can the MMSM, messaging application and
+so can various social media applications.
+Let's take a look.
+So going back to the phone application, I
+can
+select the Contact tab to access stored
+contact information.
+I can select one of the contacts to
+quickly dial that contact.
+Now as I said, I can do that
+because contact information is stored in a
+content provider.
+And again, even better, content providers
+are designed to work across applications.
+So not only can the phone dialer use the
+contacts but so can
+the MMS messaging application, and so can
+Twitter,
+Facebook, my email readers, and things
+like that.
+The next application framework component
+is the location manager.
+The location manager allows applications
+to receive location and
+movement information, such as that
+generated by the GPS system.
+And this allows applications to perform
+context-specific tasks,
+things like finding directions from the
+current location.
+Now here I'm calling up the Google
+Maps application, which queries the
+location manager for
+my current location, and then shows a map
+of the area around that current location.
+The last application framework component
+I'll
+talk about today is the Notification
+Manager.
+The Notification Manager allows
+applications to
+place information in the Notification Bar.
+For example, to let users know that
+certain events have occurred.
+For example, suppose I want to send my
+wife an MMS message.
+And let's suppose that right at this
+minute, she's
+writing an email or making a phone call or
+whatever.
+So although she probably wants to know
+that I've sent her an
+MMS message, she might not want that to
+disrupt her right now.
+Well, Android handles this with a
+Notification Manager.
+And the way that works is that there's
+some software
+running on her phone, that's always
+listening for incoming MMS messages.
+When one arrives, that software uses the
+Notification Manager
+to place an icon in her phone's
+notification bar.
+And that's shown here as a little smiley
+face icon.
+And I've whited out some of the, some of
+the information there for privacy.
+And when shes ready she can pull down on
+the notification
+bar which then shows more information
+about the specific notification.
+And if she clicks on that notification the
+MMS application will
+start up and she can read and hopefully
+respond to my message.
+The last layer of the Android software
+stack is the Application layer.
+As I said earlier, Android comes with some
+built-in applications.
+And these include things like the Home
+Screen, the
+Phone Dialer, the Web Browser, an Email
+Reader, and more.
+And one of the things that's really nice
+about Android
+is that none of these apps is hardcoded
+into the system.
+If you have a better app, you can
+substitute your app for any of these
+standard apps.
+So that's all for the Android platform.
+Please join me next time, when
+we'll explore the Android Development
+Environment.
+See you then.
+

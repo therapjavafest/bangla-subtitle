@@ -1,0 +1,474 @@
+[BLANK_AUDIO]
+Hi, I'm Adam Porter, and this is
+Programming Mobile Applications for
+Android Handheld Systems.
+Today we're going to talk about the
+Android development enviroment.
+An integrated set of tools to help you
+create your own Android applications.
+In our last lesson, I introduced you to
+the Android platform itself.
+I talked about how the Android platform is
+a software stack
+for building and running mobile
+applications.
+And if you've used an Android device, to
+write email, to take photos, to get
+directions, to play games and so on,
+then you've seen the Android platform in
+action.
+And you have a good idea about what it can
+do.
+So, the next question then, is how do we
+use the Android platform to write our own
+Android apps?
+Well, one part of the answer, is that you
+need to learn
+the details of the Android platform
+itself.
+And we'll do that throughout this class.
+Another part of the answer, though, is
+that you need to learn and
+master the tools that will allow you to
+make use of the platform.
+In order to create those new applications.
+And that's what we're going to focus on
+today.
+Now the tools that I'm talking about are
+called the Android development
+environment, and you should think of them
+as your workbench for creating
+Android applications, and like any skilled
+craftsperson, the more comfortable you are
+with your tools, the easier it's going to
+be to produce top quality work.
+Now in this lesson, we'll cover several
+topics.
+First, I'll explain how you can set up
+your development environment including
+installing the Android SDK, the Eclipse
+integrated development environment or IDE,
+and
+the Android developer tools.
+Then I'll show you the Eclipse IDE in
+action.
+And we'll create a very simple Android
+application.
+After that, I'll show you some specific
+tools; such as, the Android
+emulator which allows you to run
+Android applications without needing a
+physical device.
+And then I'll show you how to use the
+eclipse
+debugger to help you diagnose any eventual
+problems that you might
+have in your application.
+And lastly, I'll show you a variety of
+other
+tools designed to help you further perfect
+your applications.
+And before you get started make sure that
+you have a supported operating system.
+For Windows, these include Windows XP,
+Windows Vista, and Windows 7.
+For Mac you'll need Mac OS X 10, 10.5.8 or
+later.
+Running on an Intel-based CPU.
+Several Linux distributions will work as
+well.
+Please see the Android developers' website
+for more information.
+Now, you should also make sure that you
+have
+the Java Development Kit Version six, or
+the JDK6 installed.
+And be aware that JDK6 is not the latest
+version of Java, so
+some of you may have version seven, but
+that's not fully supported by Android.
+Again, check the following website for
+more information.
+So now we're ready to get started.
+So first download and install the Android
+Developer Tools or ADT Bundle.
+Now I suggest you do this right now and
+that way you can
+follow along with my examples while you
+watch the rest of this lesson.
+You can find the ADT Bundle at the URL
+shown here.
+Now I'll also point out that Google has
+recently released a new IDE, called
+Android Studio,
+which they expect will ultimately become
+the preferred IDE for doing Android
+development.
+However, since Android Studio is still
+currently in a preview or
+pre-released state, I'm going to do my
+demonstrations for this class using
+Eclipse.
+But you're free to, to use Eclipse or to
+use Android Studio, as you wish.
+Now, the ADT Bundle provides you with
+several things.
+First, it has the latest
+Android platform including the latest
+libraries, reusable software, tools, and
+documentation.
+It also includes the eclipse IDE and
+Android specific plugins.
+It has additional tools that support
+developing, running, testing,
+and debugging your Android apps and it has
+the latest
+system image for the emulator so that you
+can
+run and debug your Android applications
+without needing to have
+an actual device.
+In our last lesson we talked about the
+Android platform.
+So, today we'll talk about the other three
+elements, one by one.
+But before we do that, let's look at
+a very simple Android application called,
+Hello Android.
+And I'll be referring back to this
+application throughout the lesson.
+Now
+here I'm showing my phone's home screen.
+First, I'll click on the launch here icon.
+And then I'll click on the Hello Android
+icon to launch
+the application, the application starts,
+and displays the words, Hello world.
+Now that's about as simple as it gets, but
+let's walk through the process of writing
+the Hello Android application, using the
+eclipse IDE.
+Now this is the Eclipse IDE opened to full
+screen.
+Let's start by creating a new Android
+application project.
+Now one way to do that is to go to
+the File menu, then New, and then select
+Android Application Project.
+Once you do this, you'll see a series of
+dialogue boxes that ask you for
+information about this application.
+On the first screen enter
+Hello Android, all one word for the
+application name, and for the project
+name.
+Where it asks for the package name, I'm
+using
+course.examples.helloandroid but you could
+use something else if you'd like.
+Now go ahead and leave the other boxes
+alone, and hit Next.
+Now for this exercise, let's just click
+through the next few screens.
+They control application
+characteristics that we haven't discussed
+yet, but we'll
+come back to them when time is right.
+Once you arrive at the screen titled,
+Blank
+Activity, go ahead and hit the Finish
+button.
+Eclipse will generate the application's
+source code and layout files.
+And once it's finished, you will open a
+file called activity_main.xml.
+This file defines
+the application's user interface layout.
+And based on this file, Eclipse
+will show you whatever it can about how
+this application will look when it runs.
+As you can see here, Hello Android will
+display a simple screen with the words,
+hello world.
+Let's also take a quick look at the source
+code for this application.
+Let's open up the file main activity.java.
+Now that opens up an editor window,
+showing the contents of the file.
+And I won't talk too much about the source
+code right now, except
+to say that when this application runs;
+the on create method of this
+class will be called and that code will
+set up and display the
+application's user interface screen, so
+let's run this code to see what happens.
+One way of running an application
+is to, click on the project in the File
+pane, then select Run As, and then select
+Android Application.
+Now a dialogue box pops up, asking where
+to run the application?
+In this case, I only have my phone
+connected, so I'll choose that.
+And now, we wait while the application is
+copied to the phone, and then run.
+And there you have it.
+Your first Android application, running on
+a real device.
+Now, the phone I use is the Nexus Four.
+Let's suppose I'd like to test this out on
+a different phone.
+Let's say the Galaxy Nexus but I don't
+have one of those phones.
+In that case rather than run out and buy a
+Galaxy
+Nexus, I can run Hello Android on an
+emulated Galaxy Nexus
+using the Android Emulator.
+And in order to do that, I first need to
+create the emulated phone instance that
+I'll use inside the emulator.
+Now these emulated phone instances are
+called virtual devices.
+Let's go back to the clips, and set
+up a virtual device corresponding to a
+Galaxy Nexus.
+So now we're back in Eclipse.
+First, I'll go up to the tool bar, and
+launch the Android virtual device manager,
+it might be a bit hard
+to see here, but look for the icon, that
+shows an android in a box.
+Clicking that will display a dialogue box
+showing existing
+virtual devices and allowing you to make
+new ones.
+Let's click on the New button
+which will bring up another dialogue box.
+Under AVD name or Android Virtual Device
+name you can give this virtual device any
+name you want.
+Now go to the Device pull down menu and
+select Galaxy Nexus, that will
+fill in a bunch of information for you
+such as the target platform to use.
+In this case let's
+use Android 4.2.2.
+I'm going to add some memory to the SD
+card just in case we may need it later.
+And then I'll hit okay.
+You can see the virtual device you just
+created.
+Click on that and then click Start.
+Now go ahead and click through to the next
+screen.
+And then we'll need to wait several
+minutes while the virtual device boots up.
+I'll come back later when it's done.
+Okay, we're almost there, just a few
+seconds more.
+And there's the home screen of an emulated
+Galaxy Nexus.
+Now that the Galaxy Nexus is running,
+let's return to Eclipse.
+And this time, I'll install and run hello
+android
+on the emulated phone rather than on a
+physical device.
+So just like we did before, let's click on
+the project name.
+Select Run As, and then
+select Android application.
+A dialogue box up, box
+pops up, showing us connected devices.
+And this time, instead of selecting an
+actual device, select the virtual device
+that you just started and click okay.
+Eclipse will install the application on
+the virtual device and then run it.
+And here you go, Hello Android, running on
+the emulator.
+Today I've shown you that you can build
+applications like
+Hello Android on an actual device, inside
+an emulator or both.
+And there are pluses and minuses with each
+of these
+approaches; for example, the benefits of
+using an emulator include;
+that the emulator is cheaper, you don't
+have to buy
+all the devices that you may want to test
+on.
+Also, unlike the phone, the emulator
+allows you to easily configure hardware
+characteristics,
+like the size of the sd card, the display
+size, whether the device has a trackball,
+and so on.
+Also, many modifications that you make or
+any of the modifications that you make.
+Are isolated to this emulated device, so
+you don't have to worry
+that your testing will mess up your phone
+or its data or configuration.
+Now on the other hand, emulators have some
+downsides as well.
+For example, the Android Emulator is
+pretty slow and
+that can be frustrating when you're trying
+to rapidly experiment
+and tune your app and you have to wait for
+the emulator to start up and run and shut
+down.
+Also some features are not well supported
+by the emulator.
+For instance, there is no support for
+bluetooth connectivity and no
+support for connecting accessories to the
+emulator via a USB cable.
+Also, some software
+features aren't available at by default in
+the
+emulator, so certain applications won't
+run on it.
+And finally, at the end of the day, the
+emulator is not a device.
+You can't know how your application is
+going to look and perform
+on an actual device just by seeing it on
+an emulator.
+Let's take a look at some of the advanced
+features that the emulator supports.
+For instance, you can configure the
+emulator to
+emulate the speed and latency of different
+cellular networks.
+You can configure the emulator to emulate
+different battery states, such as
+whether you're running low on battery
+power, or currently charging the device.
+You can also inject mock location
+coordinates to
+make testing of location or applications
+much easier.
+And typically, these features help to test
+code that
+must respond to environment events.
+For instance, applications are often
+designed to
+do different things, depending on the
+battery level.
+Let me show you how easy this is.
+Here I'm showing a terminal window.
+And an emulator running on a virtual
+device.
+In the terminal window, I'll use telnet to
+connect to the emulator.
+You can see port number on which the
+emulator's listening in that
+emulator's window title bar.
+And in this case that's 5554.
+So I'll type telnet local host 5554.
+Now I'll set
+the network charactersitics to emulate a
+slower edge network.
+I'll type network, speed, edge.
+And notice that the cellular network
+status
+icon in the notification bar has now
+changed.
+Now I'll change it back to 3G network
+speed.
+And now I'll change the battery status to
+reflect
+a phone that is running out of battery
+power.
+I'll type in power, capacity 5.
+And again you can see that the battery
+status indicator in
+the notification bar is changed to reflect
+the lower battery level.
+Now I'll change the charging status to
+indicate that the phone is not plugged in.
+I'll type power status
+not charging.
+And again as you can see the
+battery status indicator no longer shows a
+lightning
+bolt, and has changed color to indicate
+that
+the device is almost completely out of
+power.
+Also if I open the maps application you
+can see
+that the emulator thinks that I'm
+currently somewhere near Washington DC.
+However, I can change that by inputting a
+new set of location coordinates like so,
+geo fix 0.00 40.00 and as you can see
+the maps application now shows that I've
+been
+transported somewhere near a beach in
+sunny Spain.
+The An, the
+Android emulator also allows you to
+emulate network interactions
+such as receiving a phone call or a SMS
+message.
+Back in the terminal window, I'll
+reconnect to the emulator over telnet.
+And then, I'll give the emulator a command
+which will cause it to emulate an incoming
+SMS message.
+That command is sms send followed by the
+sender's phone number, 3015555555.
+And then the text message.
+In this case, this is
+a text message.
+Now, keep your eye on the emulator window
+to see what happens when I hit Return.
+And as you can see, the emulator's
+notification
+bar now contains a notification,
+indicating that the
+emulated phone just received the SMS
+message and
+we can pull down on the notification bar.
+And then start messaging application to
+get a closer look at that SMS message.
+Android also allows two emulators to
+interact with each other.
+Here I'm showing two emulator instances
+running, in one
+I'll open the phone application and start
+to dial the number of
+the second.
+The number of the second
+emulator is the port number shown at the
+top of that emulator.
+In this case, 5554.
+Now you can see that the second
+emulator has received the call.
+And is ringing its user.
+So I'll pick up the incoming call in the
+second emulator, and as you can see, now
+the first emulator's interface has changed
+to reflect that the call is connected.
+Now, if one of the parties hits the Hold
+button,
+that will also be reflected in both phone
+applications.
+And once the users are done with the call,
+I can hang up
+one of the emulators and both emulators
+show that the call has been disconnected.
+And of course that' just a few of the many
+things that you can do with the emulator.
+There are many, many other interesting
+features as well and if you want to know
+more I would recommend that you take a
+look at the emulator page, on an,
+on the Android developer's website.
+
